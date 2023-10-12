@@ -1,0 +1,14 @@
+{
+  "name": "js_calculator_cicd_api_v2",
+  "version": "1.0.0",
+  "description": "Javascript Calculator API",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}

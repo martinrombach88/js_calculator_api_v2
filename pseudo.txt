@@ -33,4 +33,4 @@ CI -
 testing pull request
 
 
-1. Make sure your code is running on pull request.
+1. Make sure your code is running on pull request -> yaml file must be configured on github
