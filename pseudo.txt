@@ -1,0 +1,31 @@
+API that returns correct calculations based on string sent through postman / correct route.
+
+CI workflow should be configured at the start of the project, then you can simulate branches by working from v1
+
+- Node.js API -> could be a chance to do popular framework for routing? or just Express is okay?
+- Continuous integration phase 
+'backlog and design' phase? (not really applicable)
+how can tests be integrated into the build and automated?
+artifacts created in a build with tests
+- Continuous deployment phase
+save exponents and other new features for the cd phase
+collaborator could add instead of you?
+Use Dad's, he doesn't need it?
+- Cloud deployment? AWS Lamda?
+
+Frontend Site with 'how the calculator was deployed' info? Or is this info available on github actions?
+
+API operates on a single route?
+
+1. build the code with node.js, Express
+2. Use the open AI format /swagger to define your API 
+3. Handling errors (404 etc) -> specify the json returned
+Error handling -> calculator says E when something goes wrong.
+E: Details of error
+4. Understand the hook system - whenever a commit occurs, then run this workflow
+- run testing, run different os stuff 
+4. running the build creates the 'artifact' which can then be deployed on lambda / firebase
+
+CI -
+- Build once a day at the PR stage.
+- 
