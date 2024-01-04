@@ -8,10 +8,12 @@ const port: number = 8080;
 
 app.use(bodyParser.json());
 app.use((req: any, res: any, next: any) => {
+  //This cors rule allows anyone to use any route below
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE"
+    // "GET, POST, PUT, PATCH, DELETE"
+    "GET"
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
