@@ -1,5 +1,5 @@
 {
-  "name": "js_calculator_cicd_api_v2",
+  "name": "js_calculator_api_v2",
   "version": "1.0.0",
   "description": "CICD Calculator API",
   "main": "index.ts",
