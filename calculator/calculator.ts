@@ -1,67 +1,93 @@
 //test function - uncomment and replace default constructor to view tests
 
+import { EnumDeclaration } from "typescript";
+
 // module.exports = class Calculator {
 // 	constructor () {
 // 		this.regex = /\d+|[\(\)\+\-\*\//]+/g;
 // 		this.operators = /[\(\)\+\-\*\//]+/g;
 // 	}
+enum operators {
+  exponent = "^",
+  multiply = "*",
+  divide = "/",
+  plus = "+",
+  minus = "-",
+  empty = "",
+  // "^": 3,
+  // "*": 2,
+  // "/": 2,
+  // "+": 1,
+  // "-": 1,
+  // "": 0,
+}
 
 export default class Calculator {
-  regex: RegExp;
-  operators: RegExp;
+  operators: String[];
+  regexNumsAndOps: RegExp;
+  regexOps: RegExp;
 
   constructor() {
-    this.regex = /\d+|[\(\)\+\-\*\//]+/g;
-    this.operators = /[\(\)\+\-\*\//]+/g;
+    this.regexNumsAndOps = /\d+|[\(\)\+\-\*\//]+/g;
+    this.regexOps = /[\(\)\+\-\*\//]+/g;
   }
 
-  testCalculate = (userCalculation) => {
+  testCalculate = (userCalculation: string) => {
     //test version of main calculate
     let calcArray = this.getInputArray(userCalculation);
     let postfixArray = this.convertInfixToPostfix(calcArray);
     return this.runPostfixOperations(postfixArray);
   };
-
+  /*
   calculate = () => {
     //main function to run all the supplementary functions
+
+    //need new function to take input from the user?
     let userCalculation = prompt("Please enter your calculation");
+
     let calcArray = this.getInputArray(userCalculation);
     let postfixArray = this.convertInfixToPostfix(calcArray);
     alert(`${userCalculation} = ${this.runPostfixOperations(postfixArray)}`);
   };
+*/
 
   getInputArray = (userInput: string | null): string[] | null => {
     //create array from regex + if string has two characters, split it
     let inputArray: RegExpMatchArray | null =
-      typeof userInput === "string" ? userInput.match(this.regex) : null;
+      typeof userInput === "string"
+        ? userInput.match(this.regexNumsAndOps)
+        : null;
 
     if (inputArray) {
       return inputArray.flatMap((char) =>
-        char.length > 0 && char.match(this.operators) ? char.split("") : char
+        char.length > 0 && char.match(this.regexOps) ? char.split("") : char
       );
     }
     return null;
   };
 
-  precedenceSameOrHigher = (stack, newItem) => {
+  precedenceSameOrHigher = (stack: string[], newItem: string) => {
     //compare top operators in stack with new item (current iteration)
     let topItem = stack[stack.length - 1];
-    const operationRanks = {
-      "^": 3,
-      "*": 2,
-      "/": 2,
-      "+": 1,
-      "-": 1,
-      "": 0,
-    };
-    return operationRanks[topItem] >= operationRanks[newItem];
+    // const
+
+    // const operationRanks = {
+    //   operators.exponent: 3,
+    //   "*": 2,
+    //   "/": 2,
+    //   "+": 1,
+    //   "-": 1,
+    //   "": 0,
+    // };
+
+    // return operationRanks[topItem] >= operationRanks[newItem];
   };
 
   isOperator = (item) => {
-    return item.match(this.operators);
+    return item.match(this.regexOps);
   };
 
-  pushBracketOperators = (stack, postfixResult) => {
+  pushBracketOperators = (stack: string[], postfixResult) => {
     //slice our all relevant operators and delete left bracket, append postfixResult
     let bracketOperators = stack.splice(stack.indexOf("("), stack.length - 1);
     bracketOperators.shift();
