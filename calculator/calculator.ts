@@ -1,7 +1,5 @@
 //test function - uncomment and replace default constructor to view tests
 
-import { EnumDeclaration } from "typescript";
-
 // module.exports = class Calculator {
 // 	constructor () {
 // 		this.regex = /\d+|[\(\)\+\-\*\//]+/g;
@@ -14,16 +12,9 @@ enum operators {
   plus = "+",
   minus = "-",
   empty = "",
-  // "^": 3,
-  // "*": 2,
-  // "/": 2,
-  // "+": 1,
-  // "-": 1,
-  // "": 0,
 }
 
 export default class Calculator {
-  operators: String[];
   regexNumsAndOps: RegExp;
   regexOps: RegExp;
 
@@ -34,9 +25,16 @@ export default class Calculator {
 
   testCalculate = (userCalculation: string) => {
     //test version of main calculate
-    let calcArray = this.getInputArray(userCalculation);
-    let postfixArray = this.convertInfixToPostfix(calcArray);
-    return this.runPostfixOperations(postfixArray);
+
+    let calcArray: string[] | null = this.getInputArray(userCalculation);
+    let postfixArray: (string | number)[] | null =
+      this.convertInfixToPostfix(calcArray);
+
+    if (postfixArray) {
+      let result: number | string = this.runPostfixOperations(postfixArray);
+    }
+
+    return;
   };
   /*
   calculate = () => {
@@ -67,98 +65,99 @@ export default class Calculator {
   };
 
   precedenceSameOrHigher = (stack: string[], newItem: string) => {
-    //compare top operators in stack with new item (current iteration)
-    let topItem = stack[stack.length - 1];
-    // const
-
-    // const operationRanks = {
-    //   operators.exponent: 3,
-    //   "*": 2,
-    //   "/": 2,
-    //   "+": 1,
-    //   "-": 1,
-    //   "": 0,
-    // };
-
-    // return operationRanks[topItem] >= operationRanks[newItem];
+    switch (newItem) {
+      case operators.empty:
+        return 0;
+      case operators.minus || operators.plus:
+        return 1;
+      case operators.divide || operators.multiply:
+        return 2;
+      case operators.exponent:
+        return 3;
+      default:
+        return 0;
+    }
   };
 
-  isOperator = (item) => {
+  isOperator = (item: string) => {
     return item.match(this.regexOps);
   };
-
-  pushBracketOperators = (stack: string[], postfixResult) => {
+  //postfixResult: (string | number)[] = [];
+  pushBracketOperators = (
+    stack: string[],
+    postfixResult: (string | number)[]
+  ) => {
     //slice our all relevant operators and delete left bracket, append postfixResult
     let bracketOperators = stack.splice(stack.indexOf("("), stack.length - 1);
     bracketOperators.shift();
     return [...postfixResult, ...bracketOperators];
   };
 
-  convertInfixToPostfix = (calcArray) => {
+  convertInfixToPostfix = (calcArray: string[] | null) => {
     //opStack acts as a stack, the end is the top, and the start is the bottom (lifo)
     let postfixResult: (string | number)[] = [];
     const opStack: string[] = [];
     let bracketOpen = false;
+    if (calcArray)
+      for (let i: number = 0; i < calcArray.length; i++) {
+        let c: string = calcArray[i];
+        let temp: number = parseInt(c);
 
-    for (let current in calcArray) {
-      let c: string = calcArray[current];
-      let temp: number = parseInt(c);
-
-      if (Number.isInteger(temp)) {
-        postfixResult.push(temp);
-        continue;
-      }
-
-      if (c === "(") {
-        opStack.push(c);
-        bracketOpen = true;
-        continue;
-      }
-
-      if (bracketOpen && c === ")") {
-        postfixResult = this.pushBracketOperators(opStack, postfixResult);
-        bracketOpen = false;
-        continue;
-      }
-
-      if (
-        this.isOperator(c) &&
-        bracketOpen &&
-        !this.precedenceSameOrHigher(opStack, c)
-      ) {
-        opStack.push(c);
-        continue;
-      }
-
-      if (this.isOperator(c) && this.precedenceSameOrHigher(opStack, c)) {
-        let targetOperator = opStack.pop();
-        if (targetOperator) {
-          postfixResult.push(targetOperator);
+        if (Number.isInteger(temp)) {
+          postfixResult.push(temp);
+          continue;
         }
 
-        //keep comparing and empty stack of rule breaking items
-        while (this.precedenceSameOrHigher(opStack, c)) {
-          let targetItem = opStack.pop();
-          if (targetItem) {
-            postfixResult.push(targetItem);
+        if (c === "(") {
+          opStack.push(c);
+          bracketOpen = true;
+          continue;
+        }
+
+        if (bracketOpen && c === ")") {
+          postfixResult = this.pushBracketOperators(opStack, postfixResult);
+          bracketOpen = false;
+          continue;
+        }
+
+        if (
+          this.isOperator(c) &&
+          bracketOpen &&
+          !this.precedenceSameOrHigher(opStack, c)
+        ) {
+          opStack.push(c);
+          continue;
+        }
+
+        if (this.isOperator(c) && this.precedenceSameOrHigher(opStack, c)) {
+          let targetOperator = opStack.pop();
+          if (targetOperator) {
+            postfixResult.push(targetOperator);
           }
-        }
-        opStack.push(c);
-        continue;
-      }
 
-      if (this.isOperator(c) && !this.precedenceSameOrHigher(opStack, c)) {
-        opStack.push(c);
-        continue;
+          //keep comparing and empty stack of rule breaking items
+          while (this.precedenceSameOrHigher(opStack, c)) {
+            let targetItem = opStack.pop();
+            if (targetItem) {
+              postfixResult.push(targetItem);
+            }
+          }
+          opStack.push(c);
+          continue;
+        }
+
+        if (this.isOperator(c) && !this.precedenceSameOrHigher(opStack, c)) {
+          opStack.push(c);
+          continue;
+        }
       }
-    }
     if (opStack.length > 0) {
       postfixResult = [...postfixResult, ...opStack.reverse()];
     }
     return postfixResult;
   };
 
-  runOperation = (operator, base, newnum) => {
+  runOperation = (operator: string, base: string, newnum: string) => {
     switch (operator) {
       case "+":
         return parseFloat(base) + parseFloat(newnum);
@@ -173,20 +172,22 @@ export default class Calculator {
     }
   };
 
-  runPostfixOperations(postfixArray) {
+  runPostfixOperations(postfixArray: (number | string)[]) {
     let stack: (number | string)[] = [];
-    for (let current in postfixArray) {
-      let c: number = postfixArray[current];
+    for (let i: number = 0; i < postfixArray.length; i++) {
+      let c: string | number = postfixArray[i];
       if (Number.isInteger(c)) {
         stack.push(c);
         continue;
-      }
-
-      if (this.isOperator(c)) {
-        let num1 = stack.pop();
-        let num2 = stack.pop();
-        stack.push(this.runOperation(c, num2, num1));
-        continue;
+      } else {
+        if (typeof c === "string") {
+          if (this.isOperator(c)) {
+            let num1 = stack.pop();
+            let num2 = stack.pop();
+            stack.push(this.runOperation(c, num2, num1));
+            continue;
+          }
+        }
       }
     }
     return stack[0];
