@@ -5,14 +5,6 @@
 // 		this.regex = /\d+|[\(\)\+\-\*\//]+/g;
 // 		this.operators = /[\(\)\+\-\*\//]+/g;
 // 	}
-enum operators {
-  exponent = "^",
-  multiply = "*",
-  divide = "/",
-  plus = "+",
-  minus = "-",
-  empty = "",
-}
 
 export default class Calculator {
   regexNumsAndOps: RegExp;
@@ -23,31 +15,26 @@ export default class Calculator {
     this.regexOps = /[\(\)\+\-\*\//]+/g;
   }
 
-  testCalculate = (userCalculation: string) => {
+  testCalculate = (userCalculation: string): number | undefined => {
     //test version of main calculate
 
     let calcArray: string[] | null = this.getInputArray(userCalculation);
     let postfixArray: (string | number)[] | null =
       this.convertInfixToPostfix(calcArray);
-    let result: number | string = "";
-    if (postfixArray) {
-      result = this.runPostfixOperations(postfixArray);
+    let result: string | number = this.runPostfixOperations(postfixArray);
+    console.log("result ", result, " is a ", typeof result);
+    if (typeof result === "number") {
+      return result;
     }
-
-    return result;
   };
-  /*
-  calculate = () => {
-    //main function to run all the supplementary functions
 
-    //need new function to take input from the user?
+  calculate = () => {
     let userCalculation = prompt("Please enter your calculation");
 
     let calcArray = this.getInputArray(userCalculation);
     let postfixArray = this.convertInfixToPostfix(calcArray);
     alert(`${userCalculation} = ${this.runPostfixOperations(postfixArray)}`);
   };
-*/
 
   getInputArray = (userInput: string | null): string[] | null => {
     //create array from regex + if string has two characters, split it
@@ -64,36 +51,36 @@ export default class Calculator {
     return null;
   };
 
-  precedenceSameOrHigher = (stack: string[], newItem: string) => {
-    switch (newItem) {
-      case operators.empty:
-        return 0;
-      case operators.minus || operators.plus:
-        return 1;
-      case operators.divide || operators.multiply:
-        return 2;
-      case operators.exponent:
-        return 3;
-      default:
-        return 0;
-    }
+  precedenceSameOrHigher = (stack: string[], newItem: string): boolean => {
+    //this function doesn't work the same way.
+    // //compare top operators in stack with new item (current iteration)
+    let topItem = stack[stack.length - 1];
+    const operationRanks = {
+      "^": 3,
+      "*": 2,
+      "/": 2,
+      "+": 1,
+      "-": 1,
+      "": 0,
+    };
+    return operationRanks[topItem] >= operationRanks[newItem];
   };
 
-  isOperator = (item: string) => {
+  isOperator = (item: string): RegExpMatchArray | null => {
     return item.match(this.regexOps);
   };
-  //postfixResult: (string | number)[] = [];
+
   pushBracketOperators = (
     stack: string[],
     postfixResult: (string | number)[]
-  ) => {
+  ): (string | number)[] => {
     //slice our all relevant operators and delete left bracket, append postfixResult
     let bracketOperators = stack.splice(stack.indexOf("("), stack.length - 1);
     bracketOperators.shift();
     return [...postfixResult, ...bracketOperators];
   };
 
-  convertInfixToPostfix = (calcArray: string[] | null) => {
+  convertInfixToPostfix = (calcArray: string[] | null): (string | number)[] => {
     //opStack acts as a stack, the end is the top, and the start is the bottom (lifo)
     let postfixResult: (string | number)[] = [];
     const opStack: string[] = [];
@@ -154,10 +141,11 @@ export default class Calculator {
     if (opStack.length > 0) {
       postfixResult = [...postfixResult, ...opStack.reverse()];
     }
+
     return postfixResult;
   };
 
-  runOperation = (operator: string, base: string, newnum: string) => {
+  runOperation = (operator: string, base: string, newnum: string): number => {
     switch (operator) {
       case "+":
         return parseFloat(base) + parseFloat(newnum);
@@ -172,25 +160,20 @@ export default class Calculator {
     }
   };
 
-  runPostfixOperations(postfixArray: (number | string)[]) {
-    let stack: (number | string)[] = [];
+  runPostfixOperations(postfixArray: (number | string)[]): number | string {
+    let stack: any[] = [];
     for (let i: number = 0; i < postfixArray.length; i++) {
-      let c: string | number = postfixArray[i];
+      let c: any = postfixArray[i];
       if (Number.isInteger(c)) {
         stack.push(c);
         continue;
-      } else {
-        if (typeof c === "string") {
-          if (this.isOperator(c)) {
-            let num1 = stack.pop();
-            let num2 = stack.pop();
-            let result;
-            if (typeof num1 === "string" && typeof num2 === "string") {
-              result = this.runOperation(c, num2, num1);
-            }
-            continue;
-          }
-        }
+      }
+
+      if (this.isOperator(c)) {
+        let num1 = stack.pop();
+        let num2 = stack.pop();
+        stack.push(this.runOperation(c, num2, num1));
+        continue;
       }
     }
     return stack[0];

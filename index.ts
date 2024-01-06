@@ -23,7 +23,7 @@ app.use((req: any, res: any, next: any) => {
 
 app.get("/", (req: any, res: any) => {
   res.json({ message: "pong" });
-  console.log(`${getRouteString("Home", port)} ${getDateString()}.`);
+  //wconsole.log(`${getRouteString("Home", port)} ${getDateString()}.`);
 });
 
 const server = app.listen(port, () => {
