@@ -15,9 +15,8 @@ export default class Calculator {
     this.regexOps = /[\(\)\+\-\*\//]+/g;
   }
 
-  testCalculate = (userCalculation: string): number | undefined => {
+  calculate = (userCalculation: string): number | undefined => {
     //test version of main calculate
-
     let calcArray: string[] | null = this.getInputArray(userCalculation);
     let postfixArray: (string | number)[] | null =
       this.convertInfixToPostfix(calcArray);
@@ -26,14 +25,6 @@ export default class Calculator {
     if (typeof result === "number") {
       return result;
     }
-  };
-
-  calculate = () => {
-    let userCalculation = prompt("Please enter your calculation");
-
-    let calcArray = this.getInputArray(userCalculation);
-    let postfixArray = this.convertInfixToPostfix(calcArray);
-    alert(`${userCalculation} = ${this.runPostfixOperations(postfixArray)}`);
   };
 
   getInputArray = (userInput: string | null): string[] | null => {
