@@ -29,12 +29,12 @@ export default class Calculator {
     let calcArray: string[] | null = this.getInputArray(userCalculation);
     let postfixArray: (string | number)[] | null =
       this.convertInfixToPostfix(calcArray);
-
+    let result: number | string = "";
     if (postfixArray) {
-      let result: number | string = this.runPostfixOperations(postfixArray);
+      result = this.runPostfixOperations(postfixArray);
     }
 
-    return;
+    return result;
   };
   /*
   calculate = () => {
@@ -160,7 +160,7 @@ export default class Calculator {
   runOperation = (operator: string, base: string, newnum: string) => {
     switch (operator) {
       case "+":
-        return parseFloat(base && base) + parseFloat(newnum);
+        return parseFloat(base) + parseFloat(newnum);
       case "-":
         return parseFloat(base) - parseFloat(newnum);
       case "*":
