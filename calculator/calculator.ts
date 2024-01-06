@@ -160,7 +160,7 @@ export default class Calculator {
   runOperation = (operator: string, base: string, newnum: string) => {
     switch (operator) {
       case "+":
-        return parseFloat(base) + parseFloat(newnum);
+        return parseFloat(base && base) + parseFloat(newnum);
       case "-":
         return parseFloat(base) - parseFloat(newnum);
       case "*":
@@ -184,7 +184,10 @@ export default class Calculator {
           if (this.isOperator(c)) {
             let num1 = stack.pop();
             let num2 = stack.pop();
-            stack.push(this.runOperation(c, num2, num1));
+            let result;
+            if (typeof num1 === "string" && typeof num2 === "string") {
+              result = this.runOperation(c, num2, num1);
+            }
             continue;
           }
         }
