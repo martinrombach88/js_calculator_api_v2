@@ -1,4 +1,4 @@
-import Calculator from "../calculator/calculator";
+import Calculator from "../api/calculator/calculator";
 
 describe("Calculator", () => {
   const testCalc = new Calculator();
