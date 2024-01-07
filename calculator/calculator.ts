@@ -13,7 +13,7 @@ export default class Calculator {
     let postfixArray: (string | number)[] | null =
       this.convertInfixToPostfix(calcArray);
     let result: string | number = this.runPostfixOperations(postfixArray);
-    console.log("result ", result, " is a ", typeof result);
+
     if (typeof result === "number") {
       return result;
     }
@@ -35,10 +35,8 @@ export default class Calculator {
   };
 
   precedenceSameOrHigher = (stack: string[], newItem: string): boolean => {
-    //this function doesn't work the same way.
-    // //compare top operators in stack with new item (current iteration)
     let topItem = stack[stack.length - 1];
-    const operationRanks = {
+    const operationRanks: { [key: string]: number } = {
       "^": 3,
       "*": 2,
       "/": 2,
@@ -46,6 +44,7 @@ export default class Calculator {
       "-": 1,
       "": 0,
     };
+    //return boolean result of comparison of top operators, simulating pemdas by rank
     return operationRanks[topItem] >= operationRanks[newItem];
   };
 

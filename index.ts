@@ -6,7 +6,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const port: number = 8080;
-//const testCalc = new Calculator();
+const testCalc = new Calculator();
 
 app.use(bodyParser.json());
 app.use((req: any, res: any, next: any) => {
@@ -24,6 +24,7 @@ app.use((req: any, res: any, next: any) => {
 app.get("/", (req: any, res: any) => {
   res.json({ message: "pong" });
   console.log(`${getRouteString("Home", port)} ${getDateString()}.`);
+  console.log(`Calculator says 1+1=`, testCalc.calculate("1+1"));
 });
 
 const server = app.listen(port, () => {
