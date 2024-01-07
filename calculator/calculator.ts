@@ -1,11 +1,3 @@
-//test function - uncomment and replace default constructor to view tests
-
-// module.exports = class Calculator {
-// 	constructor () {
-// 		this.regex = /\d+|[\(\)\+\-\*\//]+/g;
-// 		this.operators = /[\(\)\+\-\*\//]+/g;
-// 	}
-
 export default class Calculator {
   regexNumsAndOps: RegExp;
   regexOps: RegExp;
@@ -152,8 +144,10 @@ export default class Calculator {
   };
 
   runPostfixOperations(postfixArray: (number | string)[]): number | string {
+    //any is not recommended but type string | number returns errors - come back to this!
     let stack: any[] = [];
     for (let i: number = 0; i < postfixArray.length; i++) {
+      //any is not recommended but type string | number returns errors - come back to this!
       let c: any = postfixArray[i];
       if (Number.isInteger(c)) {
         stack.push(c);

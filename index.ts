@@ -1,6 +1,6 @@
 import getDateString from "./helpers/getDateString";
 import getRouteString from "./helpers/getRouteString";
-//import Calculator from "./calculator/calculator";
+import Calculator from "./calculator/calculator";
 
 const express = require("express");
 const app = express();
@@ -23,7 +23,7 @@ app.use((req: any, res: any, next: any) => {
 
 app.get("/", (req: any, res: any) => {
   res.json({ message: "pong" });
-  //wconsole.log(`${getRouteString("Home", port)} ${getDateString()}.`);
+  console.log(`${getRouteString("Home", port)} ${getDateString()}.`);
 });
 
 const server = app.listen(port, () => {
