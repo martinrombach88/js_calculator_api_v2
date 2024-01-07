@@ -1,6 +1,6 @@
-import getDateString from "./helpers/getDateString";
-import getRouteString from "./helpers/getRouteString";
-import Calculator from "./calculator/calculator";
+import getDateString from "./src/api/helpers/getDateString";
+import getRouteString from "./src/api/helpers/getRouteString";
+import Calculator from "./src/api/calculator/calculator";
 
 const express = require("express");
 const app = express();
@@ -24,13 +24,21 @@ app.use((req: any, res: any, next: any) => {
 app.get("/", (req: any, res: any) => {
   res.json({ message: "pong" });
   console.log(`${getRouteString("Home", port)} ${getDateString()}.`);
-  console.log(`Calculator says 1+1=`, testCalc.calculate("1+1"));
+  console.log(`Calculator says 1 + 1 =`, testCalc.calculate("1+1"));
 });
 
-const server = app.listen(port, () => {
-  // console.log(`Server listening on port ${port}`);
+app.get("/calculation-result/:expression", (req: any, res: any) => {
+  console.log(req.params.expression);
+  console.log(
+    `${getRouteString("Calculation", port)} Params: ${
+      req.params.expression
+    } has the result ${testCalc.calculate(
+      req.params.expression
+    )}. ${getDateString()}.`
+  );
+  res.json({ result: testCalc.calculate(req.params.expression) });
 });
 
-// testCalc.testCalculate("1+1");
+const server = app.listen(port, () => {});
 
 module.exports = { app, server };
