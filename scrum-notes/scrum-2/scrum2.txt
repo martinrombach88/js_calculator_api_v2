@@ -1,0 +1,8 @@
+Trello Tasks:
+✔Convert main request to post (use TDD as well) 
+Find types for req/res
+Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
+Error handling - you should be sending a 400 error + error: invalid expression for the calculator (define outputs)
+End to End Test / functional test
+Apply Open API format 
+

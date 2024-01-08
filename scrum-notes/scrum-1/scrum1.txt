@@ -1,0 +1,4 @@
+Trello tasks:
+✔Build text returning JSON API using the calculator class
+✔Configure import syntax for jest/typescript
+✔Configure calculator with typescript and debug
