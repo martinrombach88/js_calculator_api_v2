@@ -3,9 +3,8 @@ import getRouteString from "./src/api/helpers/getRouteString";
 import Calculator from "./src/api/calculator/calculator";
 import Express from "express";
 
-const express = require("express");
 const bodyParser = require("body-parser");
-const app: Express.Application = express();
+const app: Express.Application = Express();
 const port: number = 8080;
 const testCalc = new Calculator();
 
