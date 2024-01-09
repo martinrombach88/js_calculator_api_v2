@@ -1,6 +1,17 @@
 Trello Tasks:
 ✔Convert main request to post (use TDD as well) 
 Find types for req/res
+!Bug! Express causing CI not to deploy.
+Run npm ci
+  npm ci
+  shell: /usr/bin/bash -e {0}
+npm ERR! Cannot read property 'express' of undefined
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/runner/.npm/_logs/2024-01-08T21_38_03_291Z-debug.log
+Error: Process completed with exit code 1.
+
+
 Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
 Error handling - you should be sending a 400 error + error: invalid expression for the calculator (define outputs)
 End to End Test / functional test
