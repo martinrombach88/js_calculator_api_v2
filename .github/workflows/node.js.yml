@@ -4,6 +4,8 @@
 name: Node.js CI
 
 on:
+  push:
+    branches: "configuring-for-ci"
   pull_request:
     branches: ["main"]
 
@@ -15,6 +17,10 @@ jobs:
       matrix:
         node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    #Unable to resolve action `actions/checkout@v3`, repository or version not found
+    #For anybody running into this issue in 2023, it is likely caused by downtime of the GitHub API or insufficient workflow permissions. You can check your workflow permissions by going to Set up job>GITHUB_TOKEN permissions in your workflow console.
+
+    #Your workflow should show the contents: read permission here. This permission is automatically granted unless you overwrite your workflow permissions using the github action permissions key. In that case you have to make sure the contents key is present among the other permissions you want to grant since the use of this key will remove all default permissions.
 
     steps:
       - uses: actions/checkout@v3
