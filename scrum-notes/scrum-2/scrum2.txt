@@ -1,19 +1,10 @@
 Trello Tasks:
 ✔Convert main request to post (use TDD as well) 
 
+Fix deployment
 !Bug! Express causing CI not to deploy.
-Run npm ci
-  npm ci
-  shell: /usr/bin/bash -e {0}
-npm ERR! Cannot read property 'express' of undefined
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/runner/.npm/_logs/2024-01-08T21_38_03_291Z-debug.log
-Error: Process completed with exit code 1.
-Options:
-Rebuild project using the generator
-Configure the current project express correctly
-
+-> Running build on Node 18 only fixes the bug. Which means your program is not backwards compatible(?)
+!Bug! Npm run test never finishes. This may be due to the async testing.
 
 Find types for req/res
 Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
