@@ -1,12 +1,12 @@
 import getDateString from "./src/api/helpers/getDateString";
 import getRouteString from "./src/api/helpers/getRouteString";
 import Calculator from "./src/api/calculator/calculator";
-// import express from "express";
-// import bodyParser from "body-parser";
+import express from "express";
+import bodyParser from "body-parser";
 
-const express = require("express");
+//const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 const port: number = 8080;
 const testCalc = new Calculator();
 
