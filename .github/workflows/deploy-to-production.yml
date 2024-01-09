@@ -1,0 +1,13 @@
+name: deploy-to-production.yml
+run-name: ${{ github.actor }} is deploying the CI/CD Calculator project
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+      - run: npm ci
+      - run: npm run build
