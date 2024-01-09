@@ -4,7 +4,8 @@ Trello Tasks:
 Fix deployment
 !Bug! Express causing CI not to deploy.
 -> Running build on Node 18 only fixes the bug. Which means your program is not backwards compatible(?)
-!Bug! Npm run test never finishes. This may be due to the async testing.
+!Bug! Npm run test never finishes.
+-> This bug is not related to async tests, commenting out async tests has no effect.
 
 Find types for req/res
 Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
