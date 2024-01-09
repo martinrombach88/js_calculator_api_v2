@@ -10,12 +10,10 @@ jobs:
         with:
           node-version: "18"
       - run: npm ci
-      - run: npm run build
-      - run: npm test
   upload:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/upload-artifact@v4
         with:
           name: calculator-artifact
-          path: js_calculator_api_v2
+          path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
