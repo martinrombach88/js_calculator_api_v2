@@ -3,17 +3,36 @@ Trello Tasks:
 
 Configure CI
 !Bug! Node version 14 doesn't support dependencies.
--> Running build on Node 18 only fixes the bug. Revisit this.
+✔Fixed: Running build on Node 18 only fixes the bug. Revisit this.
 
 !Bug! Unable to resolve action `actions/checkout@v3`, repository or version not found
 -> Closed the post request branch and continued in a 'configuring-for-ci' branch.
 -> Cancelled all workflows that were stuck in testing phase and continuously running.
 -> Following Github Actions documentation example as workflow is borrowed from blog and may be out of date.
--> Used a new workflow template with 'actions/checkout@v4' to remedy this.
+✔Fixed: Used a new workflow template with 'actions/checkout@v4' to remedy bug.
 
 !Bug! Npm run test never finishes.
 -> This bug is not related to async tests, commenting out async tests has no effect.
 -> There's an issue with the Github Actions API allegedly.
+-> Cancelled all workflows as server was returning a 500 a lot.
+-> Test suite was running 'watch' in the CI server so it was waiting for input.
+✔Fixed: Created separate 'test' and 'dev-test' scripts to run watcher function in development mode only.
+
+!Bug! Imports for express not recognised in the second set of tests.
+ TypeError: (0 , express_1.default) is not a function
+
+       6 |
+       7 | //const express = require("express");
+    >  8 | const app = express();
+         |                    ^
+       9 | //const bodyParser = require("body-parser");
+      10 | const port: number = 8080;
+      11 | const testCalc = new Calculator();
+
+      at Object.<anonymous> (index.ts:8:20)
+      at Object.<anonymous> (src/testing/app.test.ts:2:25)
+
+
 
 Find types for req/res
 Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)

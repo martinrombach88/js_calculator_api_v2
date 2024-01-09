@@ -1,8 +1,8 @@
 import getDateString from "./src/api/helpers/getDateString";
 import getRouteString from "./src/api/helpers/getRouteString";
 import Calculator from "./src/api/calculator/calculator";
-import express from "express";
-import bodyParser from "body-parser";
+import * as express from "express";
+import * as bodyParser from "body-parser";
 
 //const express = require("express");
 const app = express();
@@ -11,7 +11,7 @@ const port: number = 8080;
 const testCalc = new Calculator();
 
 app.use(bodyParser.json());
-app.use((req: any, res: any, next: any) => {
+app.use((req: express.Request, res: express.Response, next: any) => {
   //This cors rule allows anyone to use any route below
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET");
@@ -39,4 +39,4 @@ app.post("/calculation-result/", (req: any, res: any) => {
 
 const server = app.listen(port);
 
-module.exports = { app, server };
+export default [app, server];

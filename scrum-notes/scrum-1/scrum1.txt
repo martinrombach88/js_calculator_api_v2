@@ -3,4 +3,4 @@ Trello tasks:
 ✔Configure import syntax for jest/typescript
 ✔Configure calculator with typescript and debug
 
-Time - 4 days (part time)
+Time - 3 days (part time)

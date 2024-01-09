@@ -1,12 +1,15 @@
-const request = require("supertest");
-const { app, server } = require("../../index.ts");
+import request from "supertest";
+import app from "../../index";
+import server from "../../index";
 
 describe("Testing Jest", () => {
   it("should test that true === true", () => {
     expect(true).toBe(true);
   });
 });
-/*
+
+//do you really need to test the server itself? surely you just need to make a mock call to the url?
+
 describe("Testing the Server", () => {
   it("responds with status 200", async () => {
     const response = await request(app).get("/");
@@ -19,9 +22,9 @@ describe("Testing the Server", () => {
     });
   });
 
-  afterAll(() => {
-    server.close();
-  });
+  // afterAll(() => {
+  //   server.close();
+  // });
 });
 
 describe("Testing the Calculation Post Request", () => {
@@ -41,4 +44,3 @@ describe("Testing the Calculation Post Request", () => {
     });
   });
 });
-*/
