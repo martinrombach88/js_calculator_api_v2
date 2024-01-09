@@ -7,13 +7,14 @@ Fix deployment
 !Bug! Npm run test never finishes.
 -> This bug is not related to async tests, commenting out async tests has no effect.
 -> There's an issue with the Github Actions API allegedly.
-
-#Unable to resolve action `actions/checkout@v3`, repository or version not found
+!Bug!
+-> Unable to resolve action `actions/checkout@v3`, repository or version not found
 #For anybody running into this issue in 2023, it is likely caused by downtime of the GitHub API or insufficient workflow permissions. You can check your workflow permissions by going to Set up job>GITHUB_TOKEN permissions in your workflow console.
 
 #Your workflow should show the contents: read permission here. This permission is automatically granted unless you overwrite your workflow permissions using the github action permissions key. In that case you have to make sure the contents key is present among the other permissions you want to grant since the use of this key will remove all default permissions.
-
-Close this branch and continue in a new branch.
+-> Closed the post request branch and continued in a 'configuring-for-ci' branch.
+-> Cancelled all workflows that were stuck in testing phase and continuously running.
+-> Following Github Actions documentation example as workflow is borrowed from blog and may be out of date.
 
 Find types for req/res
 Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
