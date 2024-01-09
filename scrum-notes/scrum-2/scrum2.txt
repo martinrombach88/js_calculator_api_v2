@@ -1,7 +1,7 @@
 Trello Tasks:
 ✔Convert main request to post (use TDD as well) 
 
-Fix deployment
+Fix CI
 !Bug! Express causing CI not to deploy.
 -> Running build on Node 18 only fixes the bug. Which means your program is not backwards compatible(?)
 !Bug! Npm run test never finishes.
@@ -15,6 +15,8 @@ Fix deployment
 -> Closed the post request branch and continued in a 'configuring-for-ci' branch.
 -> Cancelled all workflows that were stuck in testing phase and continuously running.
 -> Following Github Actions documentation example as workflow is borrowed from blog and may be out of date.
+
+
 
 Find types for req/res
 Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)

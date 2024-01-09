@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --config ./jest.config.ts --watch",
     "start": "nodemon index.ts",
-    "build": "webpack"
+    "build": "npm run build"
   },
   "jest": {
     "testEnvironment": "node",
