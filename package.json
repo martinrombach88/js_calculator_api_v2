@@ -4,7 +4,8 @@
   "description": "CICD Calculator API",
   "main": "index.ts",
   "scripts": {
-    "test": "jest --config ./jest.config.ts --watch",
+    "dev-test": "jest --config ./jest.config.ts --watch",
+    "test": "jest --config ./jest.config.ts",
     "start": "nodemon index.ts",
     "build": "npm run build"
   },
