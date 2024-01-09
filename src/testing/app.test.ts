@@ -1,15 +1,13 @@
 const request = require("supertest");
 const { app, server } = require("../../index.ts");
 
-describe("Sample Test", () => {
+describe("Testing Jest", () => {
   it("should test that true === true", () => {
     expect(true).toBe(true);
   });
 });
-
-describe("Test Node Server, returns pong object", () => {
-  server;
-  // Test GET request to '/'
+/*
+describe("Testing the Server", () => {
   it("responds with status 200", async () => {
     const response = await request(app).get("/");
     expect(response.status).toBe(200);
@@ -26,15 +24,21 @@ describe("Test Node Server, returns pong object", () => {
   });
 });
 
-// describe("Test calculator route, param '1+1' returns 2", async () => {
-//   server;
-//   it("responds with status 200", async () => {
-//     const response = await request(app).get("/");
-//     expect(response.status).toBe(200);
-//   });
-//   it("responds with body {message: pong}", async () => {
-//     const response = await request(app).get("/");
-//     expect(response.body).toEqual({
-//       message: "pong",
-//     });
-// });
+describe("Testing the Calculation Post Request", () => {
+  it("responds with status 200", async () => {
+    const response = await request(app)
+      .post("/calculation-result/")
+      .send({ expression: "1+1" });
+    expect(response.status).toBe(200);
+  });
+
+  it("receives the expression 1 + 1 and returns 2", async () => {
+    const response = await request(app)
+      .post("/calculation-result/")
+      .send({ expression: "1+1" });
+    expect(response.body).toEqual({
+      result: 2,
+    });
+  });
+});
+*/
