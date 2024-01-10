@@ -1,6 +1,5 @@
-import request from "supertest";
-import app from "../../index";
-import server from "../../index";
+import * as request from "supertest";
+import { app, server } from "../../index";
 
 describe("Testing Jest", () => {
   it("should test that true === true", () => {
@@ -11,6 +10,7 @@ describe("Testing Jest", () => {
 //do you really need to test the server itself? surely you just need to make a mock call to the url?
 
 describe("Testing the Server", () => {
+  server;
   it("responds with status 200", async () => {
     const response = await request(app).get("/");
     expect(response.status).toBe(200);

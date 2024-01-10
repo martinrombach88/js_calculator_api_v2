@@ -5,7 +5,8 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 
 //const express = require("express");
-const app = express();
+export const app = express();
+
 //const bodyParser = require("body-parser");
 const port: number = 8080;
 const testCalc = new Calculator();
@@ -37,6 +38,4 @@ app.post("/calculation-result/", (req: any, res: any) => {
   res.json({ result: testCalc.calculate(req.body.expression) });
 });
 
-const server = app.listen(port);
-
-export default [app, server];
+export const server = app.listen(port);
