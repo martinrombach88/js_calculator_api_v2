@@ -23,4 +23,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: calculator-artifact
-          path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
+          path: martinrombach88/js_calculator_api_v2
