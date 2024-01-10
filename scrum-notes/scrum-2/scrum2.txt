@@ -31,7 +31,24 @@ Configure CI
 
       at Object.<anonymous> (index.ts:8:20)
       at Object.<anonymous> (src/testing/app.test.ts:2:25)
+✔Fixed: Correctly used esm syntax (export default app, import * as express from "express"). 
+CI runs npm test with no errors.
+Side note: is * best practice?
 
+!Bug! Immutable artifact already uploaded to github actions?
+Run actions/upload-artifact@v4
+  with:
+    name: calculator-artifact
+    path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
+    if-no-files-found: warn
+    compression-level: 6
+With the provided path, there will be 9129 files uploaded
+Artifact name is valid!
+Root directory input is valid!
+Error: Failed to CreateArtifact: Received non-retryable error: Failed request: (409) Conflict: an artifact with this name already exists on the workflow run
+
+Details of how artifacts are handled is here 
+https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions
 
 
 Find types for req/res

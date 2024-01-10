@@ -1,0 +1,16 @@
+name: download-artifact-test
+run-name: ${{ github.actor }} is testing artifact downloads with github actions docs
+on: [push]
+# on:
+#   pull_request:
+#     branches: ["main"]
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: calculator-artifact
+          path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
