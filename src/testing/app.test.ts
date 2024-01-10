@@ -22,9 +22,9 @@ describe("Testing the Server", () => {
     });
   });
 
-  // afterAll(() => {
-  //   server.close();
-  // });
+  afterAll(() => {
+    server.close();
+  });
 });
 
 describe("Testing the Calculation Post Request", () => {
@@ -42,5 +42,8 @@ describe("Testing the Calculation Post Request", () => {
     expect(response.body).toEqual({
       result: 2,
     });
+  });
+  afterAll(() => {
+    server.close();
   });
 });
