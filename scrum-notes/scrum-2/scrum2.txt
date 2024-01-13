@@ -49,7 +49,7 @@ Error: Failed to CreateArtifact: Received non-retryable error: Failed request: (
 
 Details of how artifacts are handled is here 
 https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions
-
+https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts 
 
 Find types for req/res
 Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
