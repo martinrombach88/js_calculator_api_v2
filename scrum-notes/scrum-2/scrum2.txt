@@ -51,9 +51,42 @@ Details of how artifacts are handled is here
 https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions
 https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts 
 
+Artifact is indeed a copy of the project, so the upload is behaving correctly. However repeat uploads can't be made.
+First run created an artifact in Node 14x, failed afterwards because the file is made one time.
+
+Run actions/upload-artifact@v4
+With the provided path, there will be 9131 files uploaded
+Artifact name is valid!
+Root directory input is valid!
+Beginning upload of artifact content to blob storage
+Uploaded bytes 8388608
+Uploaded bytes 16777216
+Uploaded bytes 21257892
+Finished uploading artifact content to blob storage!
+SHA256 hash of uploaded artifact zip is ab5801ea06b4af894971e41a1f422d14594eb289dd393aaacf2b412c5fc78a8c
+Finalizing artifact upload
+Artifact calculator-artifact.zip successfully finalized. Artifact ID 1167196040
+Artifact calculator-artifact has been successfully uploaded! Final size is 21257892 bytes. Artifact ID is 1167196040
+Artifact download URL: https://github.com/martinrombach88/js_calculator_api_v2/actions/runs/7512254663/artifacts/1167196040
+
+
+
 Find types for req/res
-Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
 Error handling - you should be sending a 400 error + error: invalid expression for the calculator (define outputs)
 End to End Test / functional test
 Apply Open API format 
+
+Import a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
+!Bug! Typescript not configured properly
+When using index.ts, tslog complains it needs index.js. From researching online, changing the 
+main file to a .ts format isn't standard practice. 
+✔Fixed: Used types/express and ts-node correctly according to LogRocket. 
+(Blog saved but you should set in stone installation style via Node docs too.)
+
+
+
+
+
+
+Use this branch to investigate typescript standards and test tslog with it.
 
