@@ -69,7 +69,11 @@ Artifact calculator-artifact.zip successfully finalized. Artifact ID 1167196040
 Artifact calculator-artifact has been successfully uploaded! Final size is 21257892 bytes. Artifact ID is 1167196040
 Artifact download URL: https://github.com/martinrombach88/js_calculator_api_v2/actions/runs/7512254663/artifacts/1167196040
 
+The successful run: https://github.com/martinrombach88/js_calculator_api_v2/actions/runs/7512254663 
 
+!To Continue! You need to handle release control to give each artifact a different identifier (i.e. version number)
+Search 'releases' on github / github actions. You'll change the release name to include the version number.
+Take this as an opportunity to learn versioning.
 
 Find types for req/res
 Error handling - you should be sending a 400 error + error: invalid expression for the calculator (define outputs)
