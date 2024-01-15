@@ -1,5 +1,6 @@
 Trello Tasks:
 ✔Convert main request to post (use TDD as well) 
+✔Find types for req/res
 
 Configure CI
 !Bug! Node version 14 doesn't support dependencies.
@@ -75,7 +76,10 @@ The successful run: https://github.com/martinrombach88/js_calculator_api_v2/acti
 Search 'releases' on github / github actions. You'll change the release name to include the version number.
 Take this as an opportunity to learn versioning.
 
-Find types for req/res
+Handle versioning and releases
+https://stackoverflow.com/questions/74949299/how-to-versioning-releases-in-github-actions
+
+
 Error handling - you should be sending a 400 error + error: invalid expression for the calculator (define outputs)
 End to End Test / functional test
 Apply Open API format 
