@@ -1,7 +1,10 @@
 import getDateString from "./src/api/helpers/getDateString";
 import getRouteString from "./src/api/helpers/getRouteString";
 import Calculator from "./src/api/calculator/calculator";
-import * as express from "express";
+
+//import * as express from "express";
+import express from "express";
+
 import * as bodyParser from "body-parser";
 
 //const express = require("express");
@@ -27,7 +30,13 @@ app.get("/", (req: any, res: any) => {
 });
 
 app.post("/calculation-result/", (req: any, res: any) => {
-  console.log(req.body.expression);
+  try {
+    res.json({ result: testCalc.calculate(req.body.expression) });
+  } catch (error) {
+    //add to log file, error, date using string constructor.
+    console.log("Error:", error);
+  }
+
   console.log(
     `${getRouteString("Calculation", port)} Params: ${
       req.body.expression
@@ -35,7 +44,6 @@ app.post("/calculation-result/", (req: any, res: any) => {
       req.body.expression
     )}. ${getDateString()}.`
   );
-  res.json({ result: testCalc.calculate(req.body.expression) });
 });
 
 export const server = app.listen(port);

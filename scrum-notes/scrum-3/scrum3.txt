@@ -1,0 +1,19 @@
+!bug!
+Jest testing imports only run independently, without the server running. 
+They require a special import syntax that crashes the server itself.
+It's simulating the server and so the server can't be run at the same time.
+
+New ticket: Switch to Cypress and end-to-end testing.
+https://www.cypress.io/
+
+1. Install cypress, remove the function testing and create an end to end test for the post request.
+This must be done first to follow TDD.
+2. Error handling on the post request.
+- user sends an invalid expression -> rejection message
+- finally / unexpected
+3. Logger - Node.js logging to file. Save locally requests with responses. Set max length, max number.
+- Log all errors (try/catch routes)
+- Log all requests (try/catch routes)
+
+Stretch Goal:
+4. Configuring CI with a workflow that includes versioning, releases

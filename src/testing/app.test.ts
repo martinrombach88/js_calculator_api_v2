@@ -7,8 +7,6 @@ describe("Testing Jest", () => {
   });
 });
 
-//do you really need to test the server itself? surely you just need to make a mock call to the url?
-
 describe("Testing the Server", () => {
   server;
   it("responds with status 200", async () => {
