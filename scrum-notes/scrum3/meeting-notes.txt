@@ -1,0 +1,16 @@
+What can you commit to do by Jan 22?
+
+1. Error handling on the post request.
+   Note: You should always put a try / catch on an endpoint
+
+- user sends an invalid expression -> rejection message
+- finally / unexpected
+
+2. Logger - Node.js logging to file. Save locally requests with responses. Set max length, max number.
+
+- Log all errors (try/catch routes)
+- Log all requests (try/catch routes)
+
+Stretch Goal:
+
+3. Configuring CI with a workflow that includes versioning, releases

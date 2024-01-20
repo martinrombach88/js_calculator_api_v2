@@ -1,9 +1,9 @@
-import getDateString from "./src/api/helpers/getDateString";
-import getRouteString from "./src/api/helpers/getRouteString";
-import Calculator from "./src/api/calculator/calculator";
+import getDateString from "./src/helpers/getDateString";
+import getRouteString from "./src/helpers/getRouteString";
+import Calculator from "./src/calculator/calculator";
 
-//import * as express from "express";
-import express from "express";
+import * as express from "express";
+//import express from "express";
 
 import * as bodyParser from "body-parser";
 
@@ -18,13 +18,15 @@ app.use(bodyParser.json());
 app.use((req: express.Request, res: express.Response, next: any) => {
   //This cors rule allows anyone to use any route below
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET");
+  res.setHeader("Access-Control-Allow-Methods", "POST");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
 
 app.get("/", (req: any, res: any) => {
+  console.log(1, `${getRouteString("Home", port)} ${getDateString()}.`);
   res.json({ message: "pong" });
+
   // console.log(`${getRouteString("Home", port)} ${getDateString()}.`);
   //console.log(`Calculator says 1 + 1 =`, testCalc.calculate("1+1"));
 });
