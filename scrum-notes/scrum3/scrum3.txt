@@ -1,2 +1,0 @@
-To do in scrum 3
-Add dotenv and abstract environment variables away from index.ts

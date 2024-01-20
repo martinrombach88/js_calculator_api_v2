@@ -3,11 +3,10 @@ Jest testing imports only run independently, without the server running.
 They require a special import syntax that crashes the server itself.
 It's simulating the server and so the server can't be run at the same time.
 
-New ticket: Switch to Cypress and end-to-end testing.
-https://www.cypress.io/
+New ticket:
+Go through all dependencies and resources you used to install typescript.
+Reboot configuration dependency free, using ts-node and jest documentation only.
 
-1. Install cypress, remove the function testing and create an end to end test for the post request.
-This must be done first to follow TDD.
 2. Error handling on the post request.
 - user sends an invalid expression -> rejection message
 - finally / unexpected
