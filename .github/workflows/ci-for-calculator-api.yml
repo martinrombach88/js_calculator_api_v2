@@ -1,0 +1,26 @@
+name: ci-for-calculator-api
+run-name: ${{ github.actor }} is building, testing and uploading an artifact to a repository.
+on: [push]
+# on:
+#   pull_request:
+#     branches: ["main"]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: ["14.x", "16.x", "18.x"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to repository
+        uses: actions/checkout@v4
+      - name: Initial branch
+        uses: actions/setup-node@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: calculator-artifact
+          path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2

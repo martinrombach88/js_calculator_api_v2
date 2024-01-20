@@ -1,13 +1,14 @@
-const request = require("supertest");
-const { app, server } = require("../../index.ts");
+import * as request from "supertest";
+import { app, server } from "../../index";
 
 describe("Testing Jest", () => {
   it("should test that true === true", () => {
     expect(true).toBe(true);
   });
 });
-/*
+
 describe("Testing the Server", () => {
+  server;
   it("responds with status 200", async () => {
     const response = await request(app).get("/");
     expect(response.status).toBe(200);
@@ -40,5 +41,7 @@ describe("Testing the Calculation Post Request", () => {
       result: 2,
     });
   });
+  afterAll(() => {
+    server.close();
+  });
 });
-*/

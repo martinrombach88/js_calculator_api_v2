@@ -1,17 +1,100 @@
 Trello Tasks:
 ✔Convert main request to post (use TDD as well) 
+✔Find types for req/res
 
-Fix deployment
-!Bug! Express causing CI not to deploy.
--> Running build on Node 18 only fixes the bug. Which means your program is not backwards compatible(?)
+Configure CI
+!Bug! Node version 14 doesn't support dependencies.
+✔Fixed: Running build on Node 18 only fixes the bug. Revisit this.
+
+!Bug! Unable to resolve action `actions/checkout@v3`, repository or version not found
+-> Closed the post request branch and continued in a 'configuring-for-ci' branch.
+-> Cancelled all workflows that were stuck in testing phase and continuously running.
+-> Following Github Actions documentation example as workflow is borrowed from blog and may be out of date.
+✔Fixed: Used a new workflow template with 'actions/checkout@v4' to remedy bug.
+
 !Bug! Npm run test never finishes.
 -> This bug is not related to async tests, commenting out async tests has no effect.
+-> There's an issue with the Github Actions API allegedly.
+-> Cancelled all workflows as server was returning a 500 a lot.
+-> Test suite was running 'watch' in the CI server so it was waiting for input.
+✔Fixed: Created separate 'test' and 'dev-test' scripts to run watcher function in development mode only.
 
-Close this branch and continue in a new branch.
+!Bug! Imports for express not recognised in the second set of tests.
+ TypeError: (0 , express_1.default) is not a function
 
-Find types for req/res
-Build a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
+       6 |
+       7 | //const express = require("express");
+    >  8 | const app = express();
+         |                    ^
+       9 | //const bodyParser = require("body-parser");
+      10 | const port: number = 8080;
+      11 | const testCalc = new Calculator();
+
+      at Object.<anonymous> (index.ts:8:20)
+      at Object.<anonymous> (src/testing/app.test.ts:2:25)
+✔Fixed: Correctly used esm syntax (export default app, import * as express from "express"). 
+CI runs npm test with no errors.
+Side note: is * best practice?
+
+!Bug! Immutable artifact already uploaded to github actions?
+Run actions/upload-artifact@v4
+  with:
+    name: calculator-artifact
+    path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
+    if-no-files-found: warn
+    compression-level: 6
+With the provided path, there will be 9129 files uploaded
+Artifact name is valid!
+Root directory input is valid!
+Error: Failed to CreateArtifact: Received non-retryable error: Failed request: (409) Conflict: an artifact with this name already exists on the workflow run
+
+Details of how artifacts are handled is here 
+https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions
+https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts 
+
+Artifact is indeed a copy of the project, so the upload is behaving correctly. However repeat uploads can't be made.
+First run created an artifact in Node 14x, failed afterwards because the file is made one time.
+
+Run actions/upload-artifact@v4
+With the provided path, there will be 9131 files uploaded
+Artifact name is valid!
+Root directory input is valid!
+Beginning upload of artifact content to blob storage
+Uploaded bytes 8388608
+Uploaded bytes 16777216
+Uploaded bytes 21257892
+Finished uploading artifact content to blob storage!
+SHA256 hash of uploaded artifact zip is ab5801ea06b4af894971e41a1f422d14594eb289dd393aaacf2b412c5fc78a8c
+Finalizing artifact upload
+Artifact calculator-artifact.zip successfully finalized. Artifact ID 1167196040
+Artifact calculator-artifact has been successfully uploaded! Final size is 21257892 bytes. Artifact ID is 1167196040
+Artifact download URL: https://github.com/martinrombach88/js_calculator_api_v2/actions/runs/7512254663/artifacts/1167196040
+
+The successful run: https://github.com/martinrombach88/js_calculator_api_v2/actions/runs/7512254663 
+
+!To Continue! You need to handle release control to give each artifact a different identifier (i.e. version number)
+Search 'releases' on github / github actions. You'll change the release name to include the version number.
+Take this as an opportunity to learn versioning.
+
+Handle versioning and releases
+https://stackoverflow.com/questions/74949299/how-to-versioning-releases-in-github-actions
+
+
 Error handling - you should be sending a 400 error + error: invalid expression for the calculator (define outputs)
 End to End Test / functional test
 Apply Open API format 
+
+Import a logger - logging to a folder / text file (this is a backend application, you should not be console logging, you should be logging to file)
+!Bug! Typescript not configured properly
+When using index.ts, tslog complains it needs index.js. From researching online, changing the 
+main file to a .ts format isn't standard practice. 
+✔Fixed: Used types/express and ts-node correctly according to LogRocket. 
+(Blog saved but you should set in stone installation style via Node docs too.)
+
+
+
+
+
+
+Use this branch to investigate typescript standards and test tslog with it.
 

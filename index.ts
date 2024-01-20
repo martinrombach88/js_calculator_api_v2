@@ -1,20 +1,21 @@
-import getDateString from "./src/api/helpers/getDateString";
-import getRouteString from "./src/api/helpers/getRouteString";
-import Calculator from "./src/api/calculator/calculator";
-import express from "express";
-import bodyParser from "body-parser";
-import { Logger, ILogObj } from "tslog";
+import getDateString from "./src/helpers/getDateString";
+import getRouteString from "./src/helpers/getRouteString";
+import Calculator from "./src/calculator/calculator";
 
-// const log: Logger<ILogObj> = new Logger();
-// log.silly("I am a silly log.");
+import * as express from "express";
+//import express from "express";
 
-const app = express();
+import * as bodyParser from "body-parser";
+
+//const express = require("express");
+export const app = express();
+
+//const bodyParser = require("body-parser");
 const port: number = 8080;
 const testCalc = new Calculator();
-const logger: Logger<ILogObj> = new Logger();
 
 app.use(bodyParser.json());
-app.use((req: any, res: any, next: any) => {
+app.use((req: express.Request, res: express.Response, next: any) => {
   //This cors rule allows anyone to use any route below
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST");
@@ -23,7 +24,7 @@ app.use((req: any, res: any, next: any) => {
 });
 
 app.get("/", (req: any, res: any) => {
-  logger.log(1, `${getRouteString("Home", port)} ${getDateString()}.`);
+  console.log(1, `${getRouteString("Home", port)} ${getDateString()}.`);
   res.json({ message: "pong" });
 
   // console.log(`${getRouteString("Home", port)} ${getDateString()}.`);
@@ -31,7 +32,13 @@ app.get("/", (req: any, res: any) => {
 });
 
 app.post("/calculation-result/", (req: any, res: any) => {
-  logger.silly("test");
+  try {
+    res.json({ result: testCalc.calculate(req.body.expression) });
+  } catch (error) {
+    //add to log file, error, date using string constructor.
+    console.log("Error:", error);
+  }
+
   console.log(
     `${getRouteString("Calculation", port)} Params: ${
       req.body.expression
@@ -39,9 +46,6 @@ app.post("/calculation-result/", (req: any, res: any) => {
       req.body.expression
     )}. ${getDateString()}.`
   );
-  res.json({ result: testCalc.calculate(req.body.expression) });
 });
 
-const server = app.listen(port);
-
-module.exports = { app, server };
+export const server = app.listen(port);
