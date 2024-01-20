@@ -3,7 +3,6 @@ import getRouteString from "./src/helpers/getRouteString";
 import Calculator from "./src/calculator/calculator";
 
 import * as express from "express";
-//import express from "express";
 
 import * as bodyParser from "body-parser";
 
