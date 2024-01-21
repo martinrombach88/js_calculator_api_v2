@@ -30,21 +30,35 @@ app.get("/", (req: any, res: any) => {
   //console.log(`Calculator says 1 + 1 =`, testCalc.calculate("1+1"));
 });
 
-app.post("/calculation-result/", (req: any, res: any) => {
-  try {
-    res.json({ result: testCalc.calculate(req.body.expression) });
-  } catch (error) {
-    //add to log file, error, date using string constructor.
-    console.log("Error:", error);
+app.post(
+  "/calculation-result/",
+  (req: express.Request, res: express.Response, next: any) => {
+    try {
+      if (!req.body.expression) {
+        console.log("error block triggered");
+        throw new Error(
+          "Expression object not found. Format should be: {expression: `my numbers and operators`}"
+        );
+      }
+      // if (typeof testCalc.calculate(req.body.expression) != "number") {
+      //   console.log("error block triggered");
+      //   throw new Error("Invalid expression received.");
+      // }
+      res.json({ result: testCalc.calculate(req.body.expression) });
+    } catch (error) {
+      res.status(400);
+      res.send(`${error}`);
+      //add to log file, error, date using string constructor.
+    }
+    //
+    // console.log(
+    //   `${getRouteString("Calculation", port)} Params: ${
+    //     req.body.expression
+    //   } has the result ${testCalc.calculate(
+    //     req.body.expression
+    //   )}. ${getDateString()}.`
+    // );
   }
-
-  console.log(
-    `${getRouteString("Calculation", port)} Params: ${
-      req.body.expression
-    } has the result ${testCalc.calculate(
-      req.body.expression
-    )}. ${getDateString()}.`
-  );
-});
+);
 
 export const server = app.listen(port);
