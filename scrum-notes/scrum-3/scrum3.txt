@@ -8,13 +8,12 @@ It's simulating the server and so the server can't be run at the same time.
 
 ✔Fixed - using tsconfig supplied by ts-node docs and dependency/unnecessary file clear out complete. Imports now both on same syntax.
 
-
-
-
-
-2. Error handling on the post request.
+✔Error handling on the post request.
 - user sends an invalid expression -> rejection message
 - finally / unexpected
+
+
+
 3. Logger - Node.js logging to file. Save locally requests with responses. Set max length, max number.
 - Log all errors (try/catch routes)
 - Log all requests (try/catch routes)

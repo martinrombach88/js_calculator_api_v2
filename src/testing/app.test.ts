@@ -48,9 +48,9 @@ describe("Testing valid request to Calculator API", () => {
 });
 
 describe("Testing empty request to Calculator API", () => {
-  it("Empty request responds with status 400", async () => {
+  it("Empty request responds with status 500", async () => {
     const response = await request(app).post("/calculation-result/").send();
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(500);
   });
 
   it("Empty request returns error text", async () => {
@@ -75,6 +75,27 @@ describe("Testing invalid request to Calculator API", () => {
       .post("/calculation-result/")
       .send({ expression: "bad" });
     expect(response.text).toEqual("Error: Expression invalid.");
+  });
+  afterAll(() => {
+    server.close();
+  });
+});
+
+describe("Testing 418 teapot HTML code", () => {
+  it("Request 'make me tea' returns error and 418", async () => {
+    const response = await request(app)
+      .post("/calculation-result/")
+      .send({ expression: "make me tea" });
+    expect(response.status).toBe(418);
+  });
+
+  it("'make me tea' request returns error text", async () => {
+    const response = await request(app)
+      .post("/calculation-result/")
+      .send({ expression: "make me tea" });
+    expect(response.text).toEqual(
+      "Error: Expression invalid. This is not a teapot."
+    );
   });
   afterAll(() => {
     server.close();

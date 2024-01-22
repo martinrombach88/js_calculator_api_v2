@@ -30,16 +30,26 @@ app.post(
   (req: express.Request, res: express.Response, next: any) => {
     try {
       if (!req.body.expression) {
+        res.statusCode = 500;
         throw new Error("Expression object not found.");
       }
+
+      if (
+        isNaN(calculator.calculate(req.body.expression)) &&
+        req.body.expression === "make me tea"
+      ) {
+        res.statusCode = 418;
+        throw new Error("Expression invalid. This is not a teapot.");
+      }
       if (isNaN(calculator.calculate(req.body.expression))) {
+        res.statusCode = 400;
         throw new Error("Expression invalid.");
       }
       if (!isNaN(calculator.calculate(req.body.expression))) {
         res.json({ result: calculator.calculate(req.body.expression) });
       }
     } catch (error) {
-      res.status(400);
+      res.status(res.statusCode);
       res.send(`${error}`);
     }
   }
