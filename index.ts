@@ -32,10 +32,11 @@ app.post(
       if (!req.body.expression) {
         throw new Error("Expression object not found.");
       }
-      if (calculator.calculate(req.body.expression) > 0) {
-        res.json({ result: calculator.calculate(req.body.expression) });
-      } else {
+      if (isNaN(calculator.calculate(req.body.expression))) {
         throw new Error("Expression invalid.");
+      }
+      if (!isNaN(calculator.calculate(req.body.expression))) {
+        res.json({ result: calculator.calculate(req.body.expression) });
       }
     } catch (error) {
       res.status(400);

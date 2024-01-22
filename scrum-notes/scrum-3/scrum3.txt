@@ -1,11 +1,16 @@
+Trello tasks
+✔Configure import syntax for jest/typescript (revisited)
+
 !bug!
 Jest testing imports only run independently, without the server running. 
 They require a special import syntax that crashes the server itself.
 It's simulating the server and so the server can't be run at the same time.
 
-New ticket:
-Go through all dependencies and resources you used to install typescript.
-Reboot configuration dependency free, using ts-node and jest documentation only.
+✔Fixed - using tsconfig supplied by ts-node docs and dependency/unnecessary file clear out complete. Imports now both on same syntax.
+
+
+
+
 
 2. Error handling on the post request.
 - user sends an invalid expression -> rejection message
