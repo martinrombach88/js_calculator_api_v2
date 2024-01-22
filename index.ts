@@ -1,17 +1,12 @@
 import getDateString from "./src/helpers/getDateString";
 import getRouteString from "./src/helpers/getRouteString";
 import Calculator from "./src/calculator/calculator";
-
 import * as express from "express";
-
 import * as bodyParser from "body-parser";
 
-//const express = require("express");
 export const app = express();
-
-//const bodyParser = require("body-parser");
 const port: number = 8080;
-const testCalc = new Calculator();
+const calculator = new Calculator();
 
 app.use(bodyParser.json());
 app.use((req: express.Request, res: express.Response, next: any) => {
@@ -23,11 +18,11 @@ app.use((req: express.Request, res: express.Response, next: any) => {
 });
 
 app.get("/", (req: any, res: any) => {
-  console.log(1, `${getRouteString("Home", port)} ${getDateString()}.`);
-  res.json({ message: "pong" });
-
-  // console.log(`${getRouteString("Home", port)} ${getDateString()}.`);
-  //console.log(`Calculator says 1 + 1 =`, testCalc.calculate("1+1"));
+  try {
+    res.json({ message: "pong" });
+  } catch (error) {
+    throw new Error(error);
+  }
 });
 
 app.post(
@@ -35,29 +30,17 @@ app.post(
   (req: express.Request, res: express.Response, next: any) => {
     try {
       if (!req.body.expression) {
-        console.log("error block triggered");
-        throw new Error(
-          "Expression object not found. Format should be: {expression: `my numbers and operators`}"
-        );
+        throw new Error("Expression object not found.");
       }
-      // if (typeof testCalc.calculate(req.body.expression) != "number") {
-      //   console.log("error block triggered");
-      //   throw new Error("Invalid expression received.");
-      // }
-      res.json({ result: testCalc.calculate(req.body.expression) });
+      if (calculator.calculate(req.body.expression) > 0) {
+        res.json({ result: calculator.calculate(req.body.expression) });
+      } else {
+        throw new Error("Expression invalid.");
+      }
     } catch (error) {
       res.status(400);
       res.send(`${error}`);
-      //add to log file, error, date using string constructor.
     }
-    //
-    // console.log(
-    //   `${getRouteString("Calculation", port)} Params: ${
-    //     req.body.expression
-    //   } has the result ${testCalc.calculate(
-    //     req.body.expression
-    //   )}. ${getDateString()}.`
-    // );
   }
 );
 
