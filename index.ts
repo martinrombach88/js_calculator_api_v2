@@ -1,17 +1,12 @@
 import getDateString from "./src/helpers/getDateString";
 import getRouteString from "./src/helpers/getRouteString";
 import Calculator from "./src/calculator/calculator";
-
 import * as express from "express";
-
 import * as bodyParser from "body-parser";
 
-//const express = require("express");
 export const app = express();
-
-//const bodyParser = require("body-parser");
 const port: number = 8080;
-const testCalc = new Calculator();
+const calculator = new Calculator();
 
 app.use(bodyParser.json());
 app.use((req: express.Request, res: express.Response, next: any) => {
@@ -23,28 +18,41 @@ app.use((req: express.Request, res: express.Response, next: any) => {
 });
 
 app.get("/", (req: any, res: any) => {
-  console.log(1, `${getRouteString("Home", port)} ${getDateString()}.`);
-  res.json({ message: "pong" });
-
-  // console.log(`${getRouteString("Home", port)} ${getDateString()}.`);
-  //console.log(`Calculator says 1 + 1 =`, testCalc.calculate("1+1"));
-});
-
-app.post("/calculation-result/", (req: any, res: any) => {
   try {
-    res.json({ result: testCalc.calculate(req.body.expression) });
+    res.json({ message: "pong" });
   } catch (error) {
-    //add to log file, error, date using string constructor.
-    console.log("Error:", error);
+    throw new Error(error);
   }
-
-  console.log(
-    `${getRouteString("Calculation", port)} Params: ${
-      req.body.expression
-    } has the result ${testCalc.calculate(
-      req.body.expression
-    )}. ${getDateString()}.`
-  );
 });
+
+app.post(
+  "/calculation-result/",
+  (req: express.Request, res: express.Response, next: any) => {
+    try {
+      if (!req.body.expression) {
+        res.statusCode = 500;
+        throw new Error("Expression object not found.");
+      }
+
+      if (
+        isNaN(calculator.calculate(req.body.expression)) &&
+        req.body.expression === "make me tea"
+      ) {
+        res.statusCode = 418;
+        throw new Error("Expression invalid. This is not a teapot.");
+      }
+      if (isNaN(calculator.calculate(req.body.expression))) {
+        res.statusCode = 400;
+        throw new Error("Expression invalid.");
+      }
+      if (!isNaN(calculator.calculate(req.body.expression))) {
+        res.json({ result: calculator.calculate(req.body.expression) });
+      }
+    } catch (error) {
+      res.status(res.statusCode);
+      res.send(`${error}`);
+    }
+  }
+);
 
 export const server = app.listen(port);
