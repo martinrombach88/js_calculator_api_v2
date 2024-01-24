@@ -7,7 +7,7 @@
   "scripts": {
     "dev-test": "jest --config ./jest.config.ts --watch",
     "test": "jest --config ./jest.config.ts",
-    "start": "nodemon index.ts | pino-pretty"
+    "start": "nodemon index.ts"
   },
   "jest": {
     "testEnvironment": "node",
