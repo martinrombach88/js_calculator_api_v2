@@ -1,6 +1,6 @@
 {
   "name": "js_calculator_api_v2",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "CICD Calculator API",
   "main": "index.js",
   "build": "tsc -p .",
