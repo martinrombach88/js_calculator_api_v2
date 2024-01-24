@@ -1,9 +1,9 @@
 name: ci-for-calculator-api
 run-name: ${{ github.actor }} is building, testing and uploading an artifact to a repository.
-# on: [push]
-on:
-  pull_request:
-    branches: ["main"]
+on: [push]
+# on:
+#   pull_request:
+#     branches: ["main"]
 
 jobs:
   build:
@@ -20,6 +20,10 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+      - name: increment version by semver patch
+        run: npm version 0.0.1
+      - name: publish version
+        run: npm publish
       - uses: actions/upload-artifact@v4
         with:
           name: calculator-artifact

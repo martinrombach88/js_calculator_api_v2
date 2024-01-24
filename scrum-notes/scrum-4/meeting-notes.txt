@@ -6,16 +6,17 @@ How do you set the download to the artifact number using the workflow?
 
 CI phase workflow
 Each workflow should:
-1. init, install and test the project
+1. ✔init, install and test the project
 2. delete the old artifact
 3. create an artifact with a unique versioned identifier which includes the node version somehow. 
 Increment version should be on third digit e.g. 0.0.1
+(handle this first?)
 
 CD phase workflow
 Each workflow should:
 1. pull the artifact, unzip and deploy via ftp to namecheap
 2. perhaps do end to end testing at this point
-3. make a backup of the artifact for future deployment problems
+3. make a backup of the artifact for future deployment problems (within namecheap)
 
 How do you make the CD workflow run after the CI workflow?
 Which of the three nodes are we going to deploy?
