@@ -12,8 +12,6 @@ It's simulating the server and so the server can't be run at the same time.
 - user sends an invalid expression -> rejection message
 - finally / unexpected
 
-
-
 3. Logger - Node.js logging to file. Save locally requests with responses. Set max length, max number.
 - Log all errors (try/catch routes)
 - Log all requests (try/catch routes)

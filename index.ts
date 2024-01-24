@@ -3,8 +3,22 @@ import getRouteString from "./src/helpers/getRouteString";
 import Calculator from "./src/calculator/calculator";
 import * as express from "express";
 import * as bodyParser from "body-parser";
+import { pino } from "pino";
 
 export const app = express();
+const __dirname = "logs";
+const logger = pino({
+  transport: {
+    target: "pino/file",
+    options: { destination: `${__dirname}/app.log` },
+  },
+});
+
+//to do
+//log to file -> see Transporting your Node.js logs below
+//https://betterstack.com/community/guides/logging/how-to-install-setup-and-use-pino-to-log-node-js-applications/
+//move logger into it's own file
+
 const port: number = 8080;
 const calculator = new Calculator();
 
@@ -19,7 +33,8 @@ app.use((req: express.Request, res: express.Response, next: any) => {
 
 app.get("/", (req: any, res: any) => {
   try {
-    res.json({ message: "pong" });
+    logger.info("Home route");
+    res.json({ message: "home" });
   } catch (error) {
     throw new Error(error);
   }
@@ -46,10 +61,17 @@ app.post(
         throw new Error("Expression invalid.");
       }
       if (!isNaN(calculator.calculate(req.body.expression))) {
+        logger.info(
+          "req.body: " +
+            req.body.expression +
+            " result: " +
+            calculator.calculate(req.body.expression)
+        );
         res.json({ result: calculator.calculate(req.body.expression) });
       }
     } catch (error) {
       res.status(res.statusCode);
+      logger.error(error);
       res.send(`${error}`);
     }
   }
