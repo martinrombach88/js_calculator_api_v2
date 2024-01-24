@@ -12,7 +12,6 @@ const logger = pino({
     options: { destination: `logs/app.log` },
   },
 });
-
 const port: number = 8080;
 const calculator = new Calculator();
 
