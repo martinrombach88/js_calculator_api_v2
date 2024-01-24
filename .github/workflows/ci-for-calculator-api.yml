@@ -21,7 +21,7 @@ jobs:
       - name: Run tests
         run: npm test
       - name: increment version by semver patch
-        run: npm version 0.0.1
+        run: npm version patch
       - name: publish version
         run: npm publish
       - uses: actions/upload-artifact@v4
