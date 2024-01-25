@@ -1,0 +1,23 @@
+https://docs.npmjs.com/cli/v10/commands/npm-version
+https://github.com/cycjimmy/semantic-release-action
+
+incrementing versions:
+your release version will be 0.6?
+
+
+then issues will be called
+'can't use exponents!' (major? minor? patch?)
+'can't use nested brackets!'
+
+then ci will kick in and new versions will be made
+
+!Bug! attempted to add versioning to the pipeline
+      - name: increment version by semver patch
+        run: npm version patch
+      - name: publish version
+        run: npm publish
+Run npm version patch
+npm ERR! Git working directory not clean.
+
+Notes:
+I have a library that can execute semantic versioning on release, via Github Actions.

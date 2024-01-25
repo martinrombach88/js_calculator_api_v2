@@ -20,16 +20,12 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-      - name: increment version by semver patch
-        run: npm version patch
-      - name: publish version
-        run: npm publish
-      - uses: actions/upload-artifact@v4
-        with:
-          name: calculator-artifact
-          path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: calculator-artifact
-          path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: calculator-artifact
+      #     path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
+      # - name: Download a single artifact
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: calculator-artifact
+      #     path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2

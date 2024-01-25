@@ -8,9 +8,9 @@ CI phase workflow
 Each workflow should:
 1. ✔init, install and test the project
 2. delete the old artifact
-3. create an artifact with a unique versioned identifier which includes the node version somehow. 
+3. create an artifact with a unique versioned identifier.
 Increment version should be on third digit e.g. 0.0.1
-(handle this first?)
+NOTE: Choose 1 version of Node (most popular release) and keep to that scope. This project is taking too long.
 
 CD phase workflow
 Each workflow should:
