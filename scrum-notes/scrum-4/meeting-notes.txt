@@ -10,7 +10,7 @@ Each workflow should:
 2. delete the old artifact
 3. create an artifact with a unique versioned identifier.
 Increment version should be on third digit e.g. 0.0.1
-NOTE: Choose 1 version of Node (most popular release) and keep to that scope. This project is taking too long.
+NOTE: Choose 1 version of Node (most popular release) and keep to that scope. This project is taking too long and handling different Node versions can be a future feature.
 
 CD phase workflow
 Each workflow should:
