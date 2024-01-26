@@ -27,7 +27,11 @@ Artifact calculator-artifact.zip successfully finalized. Artifact ID 1197457510
 Artifact calculator-artifact has been successfully uploaded! Final size is 16270045 bytes. Artifact ID is 1197457510
 Artifact download URL: https://github.com/martinrombach88/js_cicd_calculator/actions/runs/7667735017/artifacts/1197457510
 
-Don't worry about releases for now.
-- download it
-- deploy it -> these processes can automated
+Next: deployment
+- download and deploy via ftp on namecheap
+
+After that: issues phase
+- exponents
+- brackets
+
 
