@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: ["14.x", "16.x", "18.x"]
+        node-version: ["20"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout to repository
@@ -25,10 +25,4 @@ jobs:
         with:
           name: calculator-artifact
           path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
-      #  generate variable here to upload artifact?
-
-      # - name: Download a single artifact
-      #
-      #   with:
-      #     name: calculator-artifact
-      #     path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
+          overwrite: true
