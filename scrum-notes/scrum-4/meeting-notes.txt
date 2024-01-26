@@ -1,0 +1,26 @@
+Config CI
+- artifacts tied individually to the node version.
+- use the node-version variable in the yaml to define the artifact? (Check if Github Actions can do this.)
+How do you get the artifact number within the workflow?
+How do you set the download to the artifact number using the workflow?
+
+CI phase workflow
+Each workflow should:
+1. ✔init, install and test the project
+2. delete the old artifact
+3. create an artifact with a unique versioned identifier.
+Increment version should be on third digit e.g. 0.0.1
+NOTE: Choose 1 version of Node (most popular release) and keep to that scope. This project is taking too long and handling different Node versions can be a future feature.
+
+CD phase workflow
+Each workflow should:
+1. pull the artifact, unzip and deploy via ftp to namecheap
+2. perhaps do end to end testing at this point
+3. make a backup of the artifact for future deployment problems (within namecheap)
+
+How do you make the CD workflow run after the CI workflow?
+Which of the three nodes are we going to deploy?
+Where are we going to deploy it?
+
+What format is the artifact in? How do you handle that? (e.g. zip needed unzipping)
+Possible issues with permissions

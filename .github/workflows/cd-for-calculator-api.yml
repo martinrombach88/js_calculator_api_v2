@@ -1,0 +1,22 @@
+name: cd-for-calculator-api
+run-name: ${{ github.actor }} is downloading and deploying a repository
+on: [push]
+# on:
+#   pull_request:
+#     branches: ["main"]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: ["20"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to repository
+        uses: actions/checkout@v4
+        # path: /home/runner/work/js_cicd_calculator/js_cicd_calculator
+    # download repository
+    # ftp zip to namecheap
+    # and deploy on namecheap
+# does github actions support ftp?
+# can you create an associated script? or do you have to write the yaml?

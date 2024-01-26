@@ -1,13 +1,13 @@
 {
-  "name": "js_calculator_api_v2",
-  "version": "0.1.0",
+  "name": "js_cicd_calculator",
+  "version": "0.0.1",
   "description": "CICD Calculator API",
   "main": "index.js",
   "build": "tsc -p .",
   "scripts": {
     "dev-test": "jest --config ./jest.config.ts --watch",
     "test": "jest --config ./jest.config.ts",
-    "start": "nodemon index.ts | pino-pretty"
+    "start": "nodemon index.ts"
   },
   "jest": {
     "testEnvironment": "node",

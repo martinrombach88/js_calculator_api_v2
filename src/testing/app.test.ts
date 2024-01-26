@@ -14,10 +14,10 @@ describe("Testing the Server", () => {
     const response = await request(app).get("/");
     expect(response.status).toBe(200);
   });
-  it("Server responds with body {message: pong}", async () => {
+  it("Server responds with body {message: home}", async () => {
     const response = await request(app).get("/");
     expect(response.body).toEqual({
-      message: "pong",
+      message: "home",
     });
   });
 

@@ -6,19 +6,12 @@ import * as bodyParser from "body-parser";
 import { pino } from "pino";
 
 export const app = express();
-const __dirname = "logs";
 const logger = pino({
   transport: {
     target: "pino/file",
-    options: { destination: `${__dirname}/app.log` },
+    options: { destination: `logs/app.log` },
   },
 });
-
-//to do
-//log to file -> see Transporting your Node.js logs below
-//https://betterstack.com/community/guides/logging/how-to-install-setup-and-use-pino-to-log-node-js-applications/
-//move logger into it's own file
-
 const port: number = 8080;
 const calculator = new Calculator();
 
