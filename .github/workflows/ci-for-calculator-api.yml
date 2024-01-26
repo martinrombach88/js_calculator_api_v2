@@ -14,18 +14,21 @@ jobs:
     steps:
       - name: Checkout to repository
         uses: actions/checkout@v4
-      - name: Initial branch
+      - name: Initialise branch
         uses: actions/setup-node@v3
       - name: Install dependencies
         run: npm ci
       - name: Run tests
         run: npm test
-      # - uses: actions/upload-artifact@v4
-      #   with:
-      #     name: calculator-artifact
-      #     path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
+      - name: Upload artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: calculator-artifact
+          path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
+      #  generate variable here to upload artifact?
+
       # - name: Download a single artifact
-      #   uses: actions/download-artifact@v3
+      #
       #   with:
       #     name: calculator-artifact
       #     path: /home/runner/work/js_calculator_api_v2/js_calculator_api_v2
