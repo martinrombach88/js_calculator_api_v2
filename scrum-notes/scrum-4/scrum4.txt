@@ -4,7 +4,6 @@ https://github.com/cycjimmy/semantic-release-action
 incrementing versions:
 your release version will be 0.6?
 
-
 then issues will be called
 'can't use exponents!' (major? minor? patch?)
 'can't use nested brackets!'
@@ -21,5 +20,15 @@ npm ERR! Git working directory not clean.
 
 !bug! Node.js 16 actions are deprecated. Please update the following actions to use Node.js 20: actions/setup-node@v3. For more information see: https://github.blog/changelog/2023-09-22-github-actions-transitioning-from-node-16-to-node-20/.
 
--> Choose a new release of Node.js and stick to that single release.
--> Focus on making any working workflow, different node versions can be a future feature.
+✔Choose a new release of Node.js and stick to that single release. (20 is fine) Focus on making any working workflow, different node versions can be a future feature.
+
+✔Artifact uploaded.
+Artifact calculator-artifact.zip successfully finalized. Artifact ID 1197457510
+Artifact calculator-artifact has been successfully uploaded! Final size is 16270045 bytes. Artifact ID is 1197457510
+Artifact download URL: https://github.com/martinrombach88/js_cicd_calculator/actions/runs/7667735017/artifacts/1197457510
+
+Next:
+How do you send the artifact id to automated download?
+How do you delete the artifact that's there?
+
+Test it one more time to see if it can be overwritten.
