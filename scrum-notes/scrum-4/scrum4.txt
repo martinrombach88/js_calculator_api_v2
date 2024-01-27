@@ -30,6 +30,14 @@ Artifact download URL: https://github.com/martinrombach88/js_cicd_calculator/act
 Next: deployment
 - download and deploy on netlify
 
+Current state:
+Environment variables set up
+Deployment 'successful' via github workflow
+!bug! CD workflow triggering separately before ci workflow 
+!bug! Page returns a 404 on / route
+
+
+
 After that: issues phase
 - exponents
 - brackets
