@@ -19,7 +19,7 @@ jobs:
         with:
           publish-dir: "./"
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.CICD_CALC_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       # path: /home/runner/work/js_cicd_calculator/js_cicd_calculator
       # download necessary with netlify?
