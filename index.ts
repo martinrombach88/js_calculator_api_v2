@@ -4,6 +4,7 @@ import Calculator from "./src/calculator/calculator";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { pino } from "pino";
+import * as serverless from "serverless-http";
 
 export const app = express();
 const logger = pino({
@@ -71,3 +72,4 @@ app.post(
 );
 
 export const server = app.listen(port);
+export const handler = serverless(app);

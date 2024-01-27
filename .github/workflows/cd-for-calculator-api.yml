@@ -14,9 +14,17 @@ jobs:
     steps:
       - name: Checkout to repository
         uses: actions/checkout@v4
-        # path: /home/runner/work/js_cicd_calculator/js_cicd_calculator
+      - name: Netlify Actions
+        uses: nwtgck/actions-netlify@v2.1.0
+        with:
+          publish-dir: "./"
+        env:
+          #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      # path: /home/runner/work/js_cicd_calculator/js_cicd_calculator
     # download repository
     # ftp zip to namecheap
     # and deploy on namecheap
 # does github actions support ftp?
 # can you create an associated script? or do you have to write the yaml?
+
