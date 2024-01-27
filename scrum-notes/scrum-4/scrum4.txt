@@ -34,7 +34,7 @@ Current state:
 Environment variables set up
 Deployment 'successful' via github workflow
 !bug! CD workflow triggering separately before ci workflow 
-!bug! Page returns a 404 on / route
+!bug! Netlify returns a HTML page with a 404 (rather than just the json)
 
 
 
