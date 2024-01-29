@@ -7,6 +7,7 @@ import { pino } from "pino";
 import * as serverless from "serverless-http";
 
 export const app = express();
+const router = express.Router();
 const logger = pino({
   transport: {
     target: "pino/file",
@@ -17,13 +18,14 @@ const port: number = 8080;
 const calculator = new Calculator();
 
 app.use(bodyParser.json());
-app.use((req: express.Request, res: express.Response, next: any) => {
-  //This cors rule allows anyone to use any route below
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+// app.use((req: express.Request, res: express.Response, next: any) => {
+//   //This cors rule allows anyone to use any route below
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "POST");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   next();
+// });
+app.use("./netlify/functions/api", router);
 
 app.get("/", (req: any, res: any) => {
   try {

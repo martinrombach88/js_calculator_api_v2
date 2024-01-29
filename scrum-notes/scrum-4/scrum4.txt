@@ -36,7 +36,7 @@ Deployment 'successful' via github workflow
 !bug! CD workflow triggering separately before ci workflow 
 !bug! Netlify returns a HTML page with a 404 (rather than just the json)
 
-
+'In the netlify.toml or the Netlify UI, set a placeholder build command to ensure Netlify builds your functions. For example, the command could be echo Building Functions.'
 
 After that: issues phase
 - exponents
