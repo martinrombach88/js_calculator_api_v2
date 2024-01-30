@@ -38,6 +38,14 @@ Deployment 'successful' via github workflow
 
 'In the netlify.toml or the Netlify UI, set a placeholder build command to ensure Netlify builds your functions. For example, the command could be echo Building Functions.'
 
+!bug! Deployment on Netlify and Namecheap isn't practical.
+- Namecheap cannot deploy the app because of a version mismatch and inability to deploy in a continuous way. (max version of Node.js is 14)
+- Currently have been unable to configure Netlify for deployment.
+
+Next: 
+- Investigate AWS Lambda (is it free? does it work for the API?)
+- Investigate Netlify - are Express apps really no longer supported? If it's using Lambda anyway, why use Netlify?
+
 After that: issues phase
 - exponents
 - brackets
