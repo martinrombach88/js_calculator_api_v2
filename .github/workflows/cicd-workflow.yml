@@ -1,4 +1,4 @@
-name: ci-for-calculator-api
+name: cicd-workflow
 run-name: ${{ github.actor }} is running the CI/CD workflow.
 on: [push]
 # on:
