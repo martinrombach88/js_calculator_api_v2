@@ -44,10 +44,26 @@ Deployment 'successful' via github workflow
 
 Next: 
 - Investigate AWS Lambda (is it free? does it work for the API?)
+or
 - Investigate Netlify - are Express apps really no longer supported? If it's using Lambda anyway, why use Netlify?
 
-After that: issues phase
-- exponents
-- brackets
+!logic issue! 
+AWS -> Tried a tutorial for s3 and SAM (SAM is itself a configurable API).
+If you were to use SAM, you would need to supply the calculator to SAM itself.
+Deploy the app instead, return to SAM for a project redo maybe.
+https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node.html 
+Options:
+- Lambda
+- AMI
+- EC2
+- Elastic Beanstalk 
+- OpsWork
+
+
+!cost issue!
+Amazon Free Tier is unavailable, so to avoid costs, the project will 
+use a combination of a local ftp server and Github Actions. Actions
+will automatically upload the artifact, and then run a script to
+deliver the software. The ftp server will automatically deploy it.
 
 
