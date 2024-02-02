@@ -28,6 +28,6 @@ jobs:
       - name: Move to folder
         run: cd /home/runner/work
       - name: View Folder
-        run: ls
+        run: pwd && ls
       - name: Zip Directory
         run: zip -r js_cicd_calculator js_cicd_calculator
