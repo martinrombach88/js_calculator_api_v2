@@ -29,3 +29,5 @@ jobs:
         run: pwd && ls
       - name: Zip Directory
         run: zip -r js_cicd_calculator src
+      - name: View Folder Again
+        run: pwd && ls
