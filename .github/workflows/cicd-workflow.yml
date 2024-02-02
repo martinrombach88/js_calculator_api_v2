@@ -28,6 +28,6 @@ jobs:
       - name: View Folder
         run: pwd && ls
       - name: Zip Directory
-        run: zip -r js_cicd_calculator src
+        run: zip -r js_cicd_calculator * -x node_modules
       - name: View Folder Again
         run: pwd && ls
