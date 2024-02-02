@@ -25,9 +25,7 @@ jobs:
       #   with:
       #     name: calculator-artifact
       #     path: /home/runner/work/js_cicd_calculator/js_cicd_calculator
-      - name: Move to folder
-        run: cd /home/runner/work
       - name: View Folder
         run: pwd && ls
       - name: Zip Directory
-        run: zip -r js_cicd_calculator *
+        run: zip -r js_cicd_calculator src
