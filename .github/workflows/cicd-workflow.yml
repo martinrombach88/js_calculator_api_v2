@@ -29,7 +29,10 @@ jobs:
         with:
           EC2_SSH_PRIVATE_KEY: ${{secrets.AMAZON_SSH}}
           EC2_URL: ${{secrets.AMAZON_HOST}}
-
+      - name: Upload Zip
+        run: scp js_cicd_calculator.zip ${{secrets.AMAZON_USER}}@${{secrets.AMAZON_HOST}}:/home/ec2-user/
+      - name: View Folder
+        run: ssh -o StrictHostKeyChecking=no ${{secrets.AMAZON_USER}}@${{secrets.AMAZON_HOST}} "ls /home/ec2-user"
       # - name: SCP Files
       #   uses: appleboy/scp-action@v0.1.7
       #   with:
