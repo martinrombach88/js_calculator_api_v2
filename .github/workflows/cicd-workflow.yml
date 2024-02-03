@@ -31,4 +31,4 @@ jobs:
           host: ${{secrets.AMAZON_HOST}}
           username: ${{secrets.AMAZON_USER}}
           key: ${{secrets.AMAZON_SSH}}
-          remote_dir: "/test"
+          remote_dir: "/Home/ec2-user/test"
