@@ -24,11 +24,11 @@ jobs:
         run: pwd && ls
       - name: Zip Repository
         run: zip -r js_cicd_calculator . -x "*node_modules*/*"
-      - name: SCP Upload
-        uses: betanzos/scp-upload@v1.1.0
+      - name: SCP Files
+        uses: appleboy/scp-action@v0.1.7
         with:
           source: js_cicd_calculator.zip
           host: ${{secrets.AMAZON_HOST}}
           username: ${{secrets.AMAZON_USER}}
           key: ${{secrets.AMAZON_SSH}}
-          remote_dir: "/Home/ec2-user/test"
+          target: "/Home/ec2-user/test"
