@@ -1,0 +1,26 @@
+name: cicd-workflow
+run-name: ${{ github.actor }} is running the CI/CD workflow.
+# on: [push]
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: ["20"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to repository
+        uses: actions/checkout@v4
+      - name: Initialise branch
+        uses: actions/setup-node@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: View Repository
+        run: pwd && ls
+      - name: Zip Repository
+        run: zip -r js_cicd_calculator . -x "*node_modules*/*"

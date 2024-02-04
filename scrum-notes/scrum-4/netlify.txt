@@ -1,0 +1,37 @@
+Can I deploy a Node.js Express API on Netlify? Is it free?
+
+Yes, you can deploy a Node.js Express API on Netlify using Netlify Functions. Here's a brief overview of how you can do it:
+
+Install the necessary dependencies for your Express project. If your project uses JavaScript, you can exclude @netlify/functions and @types/express.
+npm i express serverless-http @netlify/functions @types/express
+Create a Netlify Function file for either TypeScript or JavaScript. For example, you might create a function file called api.ts.
+In the newly created file, write the function that will import Express and create a router object to handle routing. Here's an example:
+
+import express, { Router } from "express";
+import serverless from "serverless-http";
+
+const api = express();
+
+const router = Router();
+router.get("/hello", (req, res) => res.send("Hello World!"));
+
+
+api.use("/api/", router);
+
+
+export const handler = serverless(api);
+
+Add the necessary configuration in your netlify.toml file.
+
+Deploy your Express app using the Netlify CLI. You can install the latest version of Netlify CLI using npm install netlify-cli -g, then initialize a new Netlify site in your project directory using netlify init. Follow the prompts to create your site and set your build command and directory. If you used continuous deployment, your site is now published!
+
+You can also deploy Express apps on Netlify without a frontend. In this case, you can access the routes from other frontend apps deployed separately, just as you would with any other API endpoints. You might have to configure CORS to allow access to the routes from other domains.
+
+As for the cost, Netlify offers a free tier which includes many features like continuous deployment from Git across a global application delivery network, HTTPS, deploy previews for pull requests, and more. However, for more advanced features like team collaboration, role-based access control, and high-performance build nodes, you would need to opt for their paid plans. You can check out their pricing page for more details.
+
+Sources:
+
+Express on Netlify
+Deploy an Express app on Netlify
+Use Express without a frontend
+Deploy your Express app with Netlify CLI
