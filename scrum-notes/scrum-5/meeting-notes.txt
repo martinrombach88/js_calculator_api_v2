@@ -1,2 +1,6 @@
+So far you've achieved the ci phase of the project.
+But if you just jump into deployment now, you won't really understand it.
+
 1. Research secure shell and secure copy between Linux boxes (ssh, scp)
+2. Research public key infrastructures and public key encryption (assymetric keys, symmetric keys, what happens)
 2. Return to the project once you know more
