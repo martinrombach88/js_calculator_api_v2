@@ -24,20 +24,4 @@ jobs:
         run: pwd && ls
       - name: Zip Repository
         run: zip -r js_cicd_calculator . -x "*node_modules*/*"
-      - name: Setup SSH for EC2
-        uses: omarhosny206/setup-ssh-for-ec2@v1.0.0
-        with:
-          EC2_SSH_PRIVATE_KEY: ${{secrets.AMAZON_SSH}}
-          EC2_URL: ${{secrets.AMAZON_HOST}}
-      - name: Upload Zip
-        run: scp -i /home/runner/.ssh/id_rsa js_cicd_calculator.zip ${{secrets.AMAZON_USER}}@${{secrets.AMAZON_HOST}}:/home/ec2-user/
-      - name: View Folder
-        run: ssh -o StrictHostKeyChecking=no ${{secrets.AMAZON_USER}}@${{secrets.AMAZON_HOST}} "ls /home/ec2-user"
-      # - name: SCP Files
-      #   uses: appleboy/scp-action@v0.1.7
-      #   with:
-      #     source: js_cicd_calculator.zip
-      #     host: ${{secrets.AMAZON_HOST}}
-      #     username: ${{secrets.AMAZON_USER}}
-      #     key: ${{secrets.AMAZON_SSH}}
-      #     target: "/Home/ec2-user/test"
+
