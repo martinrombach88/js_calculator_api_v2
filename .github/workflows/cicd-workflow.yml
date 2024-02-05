@@ -33,7 +33,7 @@ jobs:
         env:
           FOO: "BAR"
           BAR: "FOO"
-          SHA: ${{ secrets.HOST }}
+          SHA: ${{ secrets.AMAZON_HOST}}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
