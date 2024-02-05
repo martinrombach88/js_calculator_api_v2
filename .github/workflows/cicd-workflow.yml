@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: Checkout to repository
         uses: actions/checkout@v4
+        env:
+          PRIVATE_KEY: ${{secrets.AMAZON_HOST}}
+          HOSTNAME: ${{secrets.AMAZON_HOST}}
+          USER_NAME: ${{secrets.AMAZON_USER}}
       - name: Initialise branch
         uses: actions/setup-node@v4
       - name: Install dependencies
@@ -22,13 +26,17 @@ jobs:
         run: npm test
       - name: View Repository
         run: pwd && ls
-      - name: Zip Repository
-        run: zip -r js_cicd_calculator . -x "*node_modules*/*"
-      - name: SCP Files
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          source: js_cicd_calculator.zip
-          host: ${{secrets.AMAZON_HOST}}
-          username: ${{secrets.AMAZON_USER}}
-          key: ${{secrets.AMAZON_SSH}}
-          target: "/Home/ec2-user/test"
+      - name: Deploy to EC2
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+          ls -al
+      # - name: Zip Repository
+      #   run: zip -r js_cicd_calculator . -x "*node_modules*/*"
+      # - name: SCP Deployment
+      #   uses: srueda99/scp-action@v12
+      #   with:
+      #     host: ${{secrets.AMAZON_HOST}}
+      #     username: ${{secrets.AMAZON_USER}}
+      #     key: ${{secrets.AMAZON_SSH}}
+      #     destination: "/Home/ec2-user/test"
