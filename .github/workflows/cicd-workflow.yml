@@ -24,7 +24,7 @@ jobs:
       - name: View Repository
         run: pwd && ls
       - name: SSH link to AWS
-        run: echo ${{secrets.AMAZON_HOST}} > privatekey && chmod 400 privatekey && ls -l privatekey && ssh -i privatekey ec2-user@ec2-13-40-155-48.eu-west-2.compute.amazonaws.com
+        run: echo ${{ secrets.AMAZON_HOST }} > privatekey && chmod 400 privatekey && ls -l privatekey && ssh -i privatekey ec2-user@ec2-13-40-155-48.eu-west-2.compute.amazonaws.com
 
       # - name: Deploy to EC2
       #   run: |
