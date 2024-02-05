@@ -15,7 +15,7 @@ jobs:
       - name: Checkout to repository
         uses: actions/checkout@v4
         env:
-          PRIVATE_KEY: ${{secrets.AMAZON_HOST}}
+          PRIVATE_KEY: ${{secrets.AMAZON_SSH}}
           HOSTNAME: ${{secrets.AMAZON_HOST}}
           USER_NAME: ${{secrets.AMAZON_USER}}
       - name: Initialise branch
@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to EC2
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} 
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
       - name: View Directory
         run: ls -al
       # - name: Zip Repository
