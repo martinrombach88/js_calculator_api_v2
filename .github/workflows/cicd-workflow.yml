@@ -26,12 +26,14 @@ jobs:
         run: npm test
       - name: View Repository
         run: pwd && ls
-      - name: Deploy to EC2
-        run: |
-          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
-      - name: View Directory
-        run: ls -al
+      - name: SSH link to AWS
+        run: echo $PRIVATE_KEY > privatekey && chmod 400 privatekey && ls -l privatekey && ssh -i privatekey ec2-user@ec2-13-40-155-48.eu-west-2.compute.amazonaws.com
+      # - name: Deploy to EC2
+      #   run: |
+      #     echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+      #     ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
+      # - name: View Directory
+      #   run: ls -al
       # - name: Zip Repository
       #   run: zip -r js_cicd_calculator . -x "*node_modules*/*"
       # - name: SCP Deployment
