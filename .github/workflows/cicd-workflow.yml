@@ -29,9 +29,9 @@ jobs:
       - name: Deploy to EC2
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-          ls -al
-          '
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} 
+      - name: View Directory
+        run: ls -al
       # - name: Zip Repository
       #   run: zip -r js_cicd_calculator . -x "*node_modules*/*"
       # - name: SCP Deployment
