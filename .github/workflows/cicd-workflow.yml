@@ -48,9 +48,9 @@ jobs:
           script: |
             tar xvf /home/ec2-user/deploy.tar
             ls -al build
-      - name: Install nvm, lts and test node version
+      - name: Install nvm
         run:
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-          . ~/.nvm/nvm.sh
-          nvm install --lts
-          node -e "console.log('Running Node.js ' + process.version)"
+          # . ~/.nvm/nvm.sh
+          # nvm install --lts
+          # node -e "console.log('Running Node.js ' + process.version)"
