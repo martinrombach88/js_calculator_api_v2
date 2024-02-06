@@ -1,6 +1,8 @@
 name: cicd-workflow
 run-name: ${{ github.actor }} is running the CI/CD workflow.
-on: [push]
+on:
+  pull_request:
+    branches: main
 
 jobs:
   build:
