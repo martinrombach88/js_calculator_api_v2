@@ -1,6 +1,5 @@
-import * as request from "supertest";
+import request from "supertest";
 import { app, server } from "../../index";
-import { error } from "console";
 
 describe("Testing Jest", () => {
   it("should test that true === true", () => {
