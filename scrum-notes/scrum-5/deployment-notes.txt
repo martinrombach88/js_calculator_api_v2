@@ -1,0 +1,8 @@
+Deployment explanation:
+
+1. Typescript issues were resolved by correctly transpiling Typescript to Javascript and using index.js in production
+2. Connections to AWS were resolved by using the IP address rather than the host name
+3. The repository was uploaded as a zip (without node modules), and delivered via scp (secure copy)
+using ssh as a transport. SSH keys were defined on the instance.
+4. Deployment of the Node.js project was achieved within the SSH session, with linux commands
+and npm commands run directly while logged in.

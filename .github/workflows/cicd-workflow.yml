@@ -39,8 +39,10 @@ jobs:
           username: ${{ secrets.AMAZON_USER }}
           key: ${{ secrets.AMAZON_SSH }}
           port: 22
+          # 1. unzip file. 2. install nvm 3. install npm and dependencies.
+          # 4. nohup = don't hang up after exit, start app, and send standard output and error to null
+          # &  = run in background
           script: |
-            npm stop
             unzip -o /home/ec2-user/deploy.zip
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
             . ~/.nvm/nvm.sh
