@@ -44,9 +44,10 @@ jobs:
           key: ${{ secrets.AMAZON_SSH }}
           port: 22
           script: |
+            npm stop
             unzip -o /home/ec2-user/deploy.zip
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
             . ~/.nvm/nvm.sh
             nvm install --lts
             npm install
-            nohup npm restart &
+            nohup npm start &
