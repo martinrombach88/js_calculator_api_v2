@@ -38,7 +38,7 @@ jobs:
           source: "deploy.tar"
           target: "/home/ec2-user"
 
-      - name: Login to target and untar file, view folder
+      - name: Login to target, untar file and install node
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.AMAZON_HOST }}
@@ -48,8 +48,7 @@ jobs:
           script: |
             tar xvf /home/ec2-user/deploy.tar
             ls -al build
-      - name: Install nvm
-        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-      - name: Install lts
-        run: nvm install --lts
-          node -e "console.log('Running Node.js ' + process.version)"
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+            . ~/.nvm/nvm.sh
+            nvm install --lts
+            node -e "console.log('Running Node.js ' + process.version)"
