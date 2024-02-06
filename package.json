@@ -2,7 +2,7 @@
   "name": "js_cicd_calculator",
   "version": "1.0.0",
   "description": "CICD Calculator API",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "dev-test": "jest --config ./jest.config.ts --watch",
     "test": "jest --config ./jest.config.ts",
