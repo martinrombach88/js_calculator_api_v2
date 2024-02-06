@@ -33,9 +33,9 @@ jobs:
       - name: multiple command
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          host: ${{ secrets.AMAZON_HOST }}
+          username: ${{ secrets.AMAZON_USER }}
+          key: ${{ secrets.AMAZON_SSH }}
           port: 22
           script: |
             tar xvf /home/deploy.tar
