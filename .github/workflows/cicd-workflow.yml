@@ -23,9 +23,10 @@ jobs:
         run: ls -al
       - name: Make directory, copy contents of repository to build directory and make tar file.
         #make directory,          cp -TR . ../build
+
         run: |
           mkdir ../build 
-          rsync -av --progress -TR ../build --exclude -TR/node_modules
+          rsync -av --progress / ../build --exclude /node_modules
           tar -cvf deploy.tar ../build/
 
       - name: Copy the tar file to target via scp
