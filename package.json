@@ -6,7 +6,7 @@
   "scripts": {
     "dev-test": "jest --config ./jest.config.ts --watch",
     "test": "jest --config ./jest.config.ts",
-    "start": "netlify dev"
+    "start": "node index.ts"
   },
   "jest": {
     "testEnvironment": "node",
