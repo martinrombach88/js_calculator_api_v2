@@ -49,4 +49,4 @@ jobs:
             . ~/.nvm/nvm.sh
             nvm install --lts
             npm install
-            nohup npm run start &
+            nohup npm run start

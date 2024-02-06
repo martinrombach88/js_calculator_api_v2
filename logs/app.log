@@ -140,3 +140,4 @@
 {"level":30,"time":1707235602975,"pid":11626,"hostname":"Martins-MBP","msg":"req.body: 3 + 4 result: 7"}
 {"level":30,"time":1707235603923,"pid":11626,"hostname":"Martins-MBP","msg":"req.body: 3 + 4 result: 7"}
 {"level":30,"time":1707235607735,"pid":11626,"hostname":"Martins-MBP","msg":"req.body: 3 + 5 result: 8"}
+{"level":30,"time":1707236831060,"pid":12213,"hostname":"Martins-MBP","msg":"req.body: 3 * (4  + 5 ) result: 27"}
