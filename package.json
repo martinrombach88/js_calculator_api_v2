@@ -6,8 +6,7 @@
   "scripts": {
     "dev-test": "jest --config ./jest.config.ts --watch",
     "test": "jest --config ./jest.config.ts",
-    "start": "node ./dist/index.js",
-    "stop": "ps -ef | grep npm | awk '{print $2}' | xargs kill -9"
+    "start": "node ./dist/index.js"
   },
   "jest": {
     "testEnvironment": "node",

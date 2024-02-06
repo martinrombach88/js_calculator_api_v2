@@ -17,10 +17,6 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-      - name: View Repository
-        run: pwd && ls
-      - name: View Directory
-        run: ls -al
       - name: Make directory zip
         run: |
           mkdir ../build 
@@ -44,10 +40,10 @@ jobs:
           key: ${{ secrets.AMAZON_SSH }}
           port: 22
           script: |
-            npm stop
             unzip -o /home/ec2-user/deploy.zip
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
             . ~/.nvm/nvm.sh
             nvm install --lts
             npm install
             nohup npm start &
+            exit
