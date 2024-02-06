@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "CICD Calculator API",
   "main": "index.ts",
-  "type": "module",
   "scripts": {
     "dev-test": "jest --config ./jest.config.ts --watch",
     "test": "jest --config ./jest.config.ts",
