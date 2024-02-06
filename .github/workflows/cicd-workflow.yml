@@ -46,5 +46,4 @@ jobs:
             . ~/.nvm/nvm.sh
             nvm install --lts
             npm install
-            nohup npm start &
-            exit
+            nohup npm start 1>/dev/null 2>/dev/null &
