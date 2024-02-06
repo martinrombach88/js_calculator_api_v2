@@ -1,6 +1,6 @@
 import Calculator from "./src/calculator/calculator";
-import * as express from "express";
-import * as bodyParser from "body-parser";
+import express from "express";
+import bodyParser from "body-parser";
 import { pino } from "pino";
 
 export const app = express();
