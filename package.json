@@ -7,7 +7,7 @@
   "scripts": {
     "dev-test": "jest --config ./jest.config.ts --watch",
     "test": "jest --config ./jest.config.ts",
-    "start": "node index.ts"
+    "start": "node --loader ts-node/esm index.ts"
   },
   "jest": {
     "testEnvironment": "node",
