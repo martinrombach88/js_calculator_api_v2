@@ -14,10 +14,6 @@ jobs:
     steps:
       - name: Checkout to repository
         uses: actions/checkout@v4
-        env:
-          PRIVATE_KEY: ${{secrets.AMAZON_SSH}}
-          HOSTNAME: ${{secrets.AMAZON_HOST}}
-          USER_NAME: ${{secrets.AMAZON_USER}}
       - name: Initialise branch
         uses: actions/setup-node@v4
       - name: Install dependencies
@@ -26,36 +22,26 @@ jobs:
         run: npm test
       - name: View Repository
         run: pwd && ls
-      - name: echo key
-        run: 'echo "$PRIVATE_KEY" > privatekey'
-      - name: pass environment
-        uses: appleboy/ssh-action@v1.0.3
-        env:
-          FOO: "BAR"
-          BAR: "FOO"
-          SHA: ${{ secrets.AMAZON_HOST}}
+      - name: View Directory
+        run: ls -al
+      - name: Zip Repository
+        run: zip -r js_cicd_calculator . -x "*node_modules*/*"
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          envs: FOO,BAR,SHA
+          host: ${{ secrets.AMAZON_HOST }}
+          username: ${{ secrets.AMAZON_USER }}
+          key: ${{ secrets.AMAZON_SSH }}
+          port: 22
+          source: "js_cicd_calculator.zip"
+          target: "/home/"
+      - name: multiple command
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AMAZON_HOST }}
+          username: ${{ secrets.AMAZON_USER }}
+          key: ${{ secrets.AMAZON_SSH }}
+          port: 22
           script: |
-            echo "I am $FOO"
-            echo "I am $BAR"
-            echo "sha: $SHA"
-      # - name: Deploy to EC2
-      #   run: |
-      #     'echo "$PRIVATE_KEY" > private_key' && chmod 600 private_key
-      #     ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
-      # - name: View Directory
-      #   run: ls -al
-      # - name: Zip Repository
-      #   run: zip -r js_cicd_calculator . -x "*node_modules*/*"
-      # - name: SCP Deployment
-      #   uses: srueda99/scp-action@v12
-      #   with:
-      #     host: ${{secrets.AMAZON_HOST}}
-      #     username: ${{secrets.AMAZON_USER}}
-      #     key: ${{secrets.AMAZON_SSH}}
-      #     destination: "/Home/ec2-user/test"
+            unzip /home/js_cicd_calculator.zip
+            ls -al build
