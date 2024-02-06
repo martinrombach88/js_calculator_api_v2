@@ -22,12 +22,12 @@ jobs:
       - name: View Directory
         run: ls -al
       - name: Make directory, copy contents of repository to build directory and make tar file.
-        #make directory,          cp -TR . ../build
+        #make directory,
+        # rsync -av --progress / ../build --exclude /node_modules
 
         run: |
           mkdir ../build 
-          rsync -av --progress / ../build --exclude /node_modules
-          tar -cvf deploy.tar ../build/
+          zip -r deploy.zip . -x "*node_modules*/*" . ../build
 
       - name: Copy the tar file to target via scp
         uses: appleboy/scp-action@master
@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.AMAZON_USER }}
           key: ${{ secrets.AMAZON_SSH }}
           port: 22
-          source: "deploy.tar"
+          source: "deploy.zip"
           target: "/home/ec2-user"
 
       - name: Login to target, untar file and install node
@@ -47,7 +47,7 @@ jobs:
           key: ${{ secrets.AMAZON_SSH }}
           port: 22
           script: |
-            tar xvf /home/ec2-user/deploy.tar
+            unzip /home/ec2-user/deploy.zip
             ls -al build
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
             . ~/.nvm/nvm.sh
