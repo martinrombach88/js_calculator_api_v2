@@ -30,7 +30,7 @@ jobs:
         run: |
           mkdir ../build
           cp -TR . ../build
-          tar -cvf deploy.tar ../build/ --exclude="*node_modules*/*"
+          tar -cvf deploy.tar ../build/ --exclude=node_modules
       - name: copy file via ssh password
         uses: appleboy/scp-action@master
         with:
