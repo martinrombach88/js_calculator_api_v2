@@ -3,7 +3,6 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { pino } from "pino";
 
-
 export const app = express();
 const router = express.Router();
 const logger = pino({
