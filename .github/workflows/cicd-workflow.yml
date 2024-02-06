@@ -44,8 +44,7 @@ jobs:
           key: ${{ secrets.AMAZON_SSH }}
           port: 22
           script: |
-            unzip /home/ec2-user/deploy.zip
-            ls -al build
+            unzip -o /home/ec2-user/deploy.zip
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
             . ~/.nvm/nvm.sh
             nvm install --lts
