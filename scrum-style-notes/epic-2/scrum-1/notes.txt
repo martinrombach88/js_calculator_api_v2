@@ -1,0 +1,25 @@
+House keeping -
+Your website doesn't have a security certificate.
+
+Amazon is too costly a method to deploy this project permanently. It must be deployed on namecheap to retain access to the endpoint.
+
+Was the imtv node.js api deployed on namecheap? Surely its just a case of repeating the same process? 
+
+How do you retain the 'ci/cd' aspects? Are you just demonstrating artifact and continuous deployment? (i.e. ci comes from changes)
+
+- amazon 2fa is a time consumer as well.
+
+What does your interviewer need to see?
+
+1. A working API endpoint, quickly testable on Postman or equivalent
+
+2. Evidence of Github Actions use and knowledge of how it was used 
+
+Break the work down into smaller tasks:
+Ticket 1. Pay for new security certificate
+Ticket 2. Create a new yaml file for deployment on either Render or Vercel based on the amazon ec2 workflow, but without the excess of logging into an instance and running the application once logged in via linux commands
+Render 
+https://render.com/docs/deploy-node-express-app
+Vercel
+https://vercel.com/martin-rombachs-projects 
+Ticket 3. Test the site via Postman, and appropriate mock the API if possible using ts / jest
