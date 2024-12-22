@@ -1,7 +1,7 @@
 House keeping -
 Your website doesn't have a security certificate.
 
-Amazon is too costly a method to deploy this project permanently. It must be deployed on namecheap to retain access to the endpoint.
+Amazon is too costly a method to deploy this project permanently. It must be deployed on an alternative service to retain access to the endpoint.
 
 Was the imtv node.js api deployed on namecheap? Surely its just a case of repeating the same process? 
 
