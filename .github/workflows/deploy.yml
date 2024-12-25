@@ -1,7 +1,7 @@
 name: Deploy the calculator
 run-name: ${{ github.actor }} is deploying the calculator API.
 on:
-  pull_request:
+  push:
     branches: main
 
 jobs:
