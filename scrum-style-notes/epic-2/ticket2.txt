@@ -8,10 +8,12 @@ https://vercel.com/martin-rombachs-projects
 
 - 401 error
 solved through a vercel bearer token
-- api returns html? does not behave like the api. 
+
+? api returns html? does not behave like the api. 
 link returns metrics about the api but not the api itself.
 all urls return similar results. it's likely 
 the deployment is designed for frontend applications
+
 - follow the docs, express deployment 
 app complains there is no build property established.
 when following dad's approach, he deployed 
@@ -20,3 +22,14 @@ based on that. you need to reverse engineer
 this to a more basic one (perhaps through
 looking back into the history) where things
 are just deployed as is
+
+- try git history 
+
+- git history creates more confusion
+you need a clear cut understanding of what should happen after npm test in your new deployment.
+in the previous deployment, you turned the project into an artifact, zipped it,
+uploaded it to amazon ec2, logged in live and deployed it 
+(btw which left the instance open probably not best practice)
+
+? so what do you want to do instead?
+deploy to vercel using standard node / express commands that incorporate typescript in build/start 
