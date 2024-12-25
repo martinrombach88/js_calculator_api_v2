@@ -1,0 +1,16 @@
+﻿2024-12-25T12:29:03.8362110Z ##[group]Run npm test
+2024-12-25T12:29:03.8362874Z [36;1mnpm test[0m
+2024-12-25T12:29:03.8439862Z shell: /usr/bin/bash -e {0}
+2024-12-25T12:29:03.8440240Z ##[endgroup]
+2024-12-25T12:29:03.9713893Z 
+2024-12-25T12:29:03.9715362Z > js_cicd_calculator@1.0.0 test
+2024-12-25T12:29:03.9716417Z > jest --config ./jest.config.ts
+2024-12-25T12:29:03.9717087Z 
+2024-12-25T12:29:08.5603976Z PASS src/testing/calculator.test.ts
+2024-12-25T12:29:08.9106800Z PASS src/testing/app.test.ts
+2024-12-25T12:29:08.9426278Z 
+2024-12-25T12:29:08.9432681Z Test Suites: 2 passed, 2 total
+2024-12-25T12:29:08.9433509Z Tests:       20 passed, 20 total
+2024-12-25T12:29:08.9433953Z Snapshots:   0 total
+2024-12-25T12:29:08.9434403Z Time:        2.914 s
+2024-12-25T12:29:08.9435089Z Ran all test suites.

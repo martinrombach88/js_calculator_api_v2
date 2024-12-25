@@ -1,0 +1,67 @@
+﻿2024-12-25T12:28:58.3894430Z ##[group]Run actions/checkout@v4
+2024-12-25T12:28:58.3895585Z with:
+2024-12-25T12:28:58.3896179Z   repository: martinrombach88/js_cicd_calculator
+2024-12-25T12:28:58.3896957Z   token: ***
+2024-12-25T12:28:58.3897572Z   ssh-strict: true
+2024-12-25T12:28:58.3898085Z   ssh-user: git
+2024-12-25T12:28:58.3898529Z   persist-credentials: true
+2024-12-25T12:28:58.3899168Z   clean: true
+2024-12-25T12:28:58.3899699Z   sparse-checkout-cone-mode: true
+2024-12-25T12:28:58.3900216Z   fetch-depth: 1
+2024-12-25T12:28:58.3900778Z   fetch-tags: false
+2024-12-25T12:28:58.3901290Z   show-progress: true
+2024-12-25T12:28:58.3901735Z   lfs: false
+2024-12-25T12:28:58.3902307Z   submodules: false
+2024-12-25T12:28:58.3902795Z   set-safe-directory: true
+2024-12-25T12:28:58.3903558Z ##[endgroup]
+2024-12-25T12:28:58.5511502Z Syncing repository: martinrombach88/js_cicd_calculator
+2024-12-25T12:28:58.5513768Z ##[group]Getting Git version info
+2024-12-25T12:28:58.5514677Z Working directory is '/home/runner/work/js_cicd_calculator/js_cicd_calculator'
+2024-12-25T12:28:58.5516586Z [command]/usr/bin/git version
+2024-12-25T12:28:58.5550683Z git version 2.47.1
+2024-12-25T12:28:58.5577396Z ##[endgroup]
+2024-12-25T12:28:58.5590419Z Temporarily overriding HOME='/home/runner/work/_temp/d6d52637-d361-4ae2-b1d7-50a180df3cba' before making global git config changes
+2024-12-25T12:28:58.5591900Z Adding repository directory to the temporary git global config as a safe directory
+2024-12-25T12:28:58.5602642Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/js_cicd_calculator/js_cicd_calculator
+2024-12-25T12:28:58.5638777Z Deleting the contents of '/home/runner/work/js_cicd_calculator/js_cicd_calculator'
+2024-12-25T12:28:58.5642181Z ##[group]Initializing the repository
+2024-12-25T12:28:58.5645968Z [command]/usr/bin/git init /home/runner/work/js_cicd_calculator/js_cicd_calculator
+2024-12-25T12:28:58.5703531Z hint: Using 'master' as the name for the initial branch. This default branch name
+2024-12-25T12:28:58.5704769Z hint: is subject to change. To configure the initial branch name to use in all
+2024-12-25T12:28:58.5705744Z hint: of your new repositories, which will suppress this warning, call:
+2024-12-25T12:28:58.5706606Z hint:
+2024-12-25T12:28:58.5707357Z hint: 	git config --global init.defaultBranch <name>
+2024-12-25T12:28:58.5708474Z hint:
+2024-12-25T12:28:58.5709433Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2024-12-25T12:28:58.5710756Z hint: 'development'. The just-created branch can be renamed via this command:
+2024-12-25T12:28:58.5711526Z hint:
+2024-12-25T12:28:58.5712068Z hint: 	git branch -m <name>
+2024-12-25T12:28:58.5713174Z Initialized empty Git repository in /home/runner/work/js_cicd_calculator/js_cicd_calculator/.git/
+2024-12-25T12:28:58.5719321Z [command]/usr/bin/git remote add origin https://github.com/martinrombach88/js_cicd_calculator
+2024-12-25T12:28:58.5751499Z ##[endgroup]
+2024-12-25T12:28:58.5752395Z ##[group]Disabling automatic garbage collection
+2024-12-25T12:28:58.5756103Z [command]/usr/bin/git config --local gc.auto 0
+2024-12-25T12:28:58.5785372Z ##[endgroup]
+2024-12-25T12:28:58.5786468Z ##[group]Setting up auth
+2024-12-25T12:28:58.5792143Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-12-25T12:28:58.5829275Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-12-25T12:28:58.6138355Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-12-25T12:28:58.6169628Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-12-25T12:28:58.6404598Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2024-12-25T12:28:58.6441361Z ##[endgroup]
+2024-12-25T12:28:58.6443305Z ##[group]Fetching the repository
+2024-12-25T12:28:58.6451183Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d9ddb89324ab9e799d0bbe8d8e967e60431baa00:refs/remotes/origin/main
+2024-12-25T12:28:59.1119292Z From https://github.com/martinrombach88/js_cicd_calculator
+2024-12-25T12:28:59.1120595Z  * [new ref]         d9ddb89324ab9e799d0bbe8d8e967e60431baa00 -> origin/main
+2024-12-25T12:28:59.1145966Z ##[endgroup]
+2024-12-25T12:28:59.1147440Z ##[group]Determining the checkout info
+2024-12-25T12:28:59.1148849Z ##[endgroup]
+2024-12-25T12:28:59.1153327Z [command]/usr/bin/git sparse-checkout disable
+2024-12-25T12:28:59.1192156Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2024-12-25T12:28:59.1220052Z ##[group]Checking out the ref
+2024-12-25T12:28:59.1223155Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2024-12-25T12:28:59.1325617Z Switched to a new branch 'main'
+2024-12-25T12:28:59.1329240Z branch 'main' set up to track 'origin/main'.
+2024-12-25T12:28:59.1334491Z ##[endgroup]
+2024-12-25T12:28:59.1368793Z [command]/usr/bin/git log -1 --format=%H
+2024-12-25T12:28:59.1392332Z d9ddb89324ab9e799d0bbe8d8e967e60431baa00

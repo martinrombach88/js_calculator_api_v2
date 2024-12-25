@@ -1,0 +1,16 @@
+﻿2024-12-25T12:29:08.9791904Z ##[group]Run npm install
+2024-12-25T12:29:08.9792405Z [36;1mnpm install[0m
+2024-12-25T12:29:08.9850992Z shell: /usr/bin/bash -e {0}
+2024-12-25T12:29:08.9851354Z ##[endgroup]
+2024-12-25T12:29:10.0332026Z 
+2024-12-25T12:29:10.0333000Z up to date, audited 457 packages in 974ms
+2024-12-25T12:29:10.0333706Z 
+2024-12-25T12:29:10.0334105Z 47 packages are looking for funding
+2024-12-25T12:29:10.0334884Z   run `npm fund` for details
+2024-12-25T12:29:10.0463823Z 
+2024-12-25T12:29:10.0464327Z 9 vulnerabilities (3 low, 1 moderate, 5 high)
+2024-12-25T12:29:10.0464790Z 
+2024-12-25T12:29:10.0465125Z To address all issues, run:
+2024-12-25T12:29:10.0465914Z   npm audit fix
+2024-12-25T12:29:10.0466290Z 
+2024-12-25T12:29:10.0466643Z Run `npm audit` for details.

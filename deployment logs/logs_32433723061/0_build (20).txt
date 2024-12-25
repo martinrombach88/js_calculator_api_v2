@@ -1,0 +1,167 @@
+﻿2024-12-25T12:28:57.8316324Z Current runner version: '2.321.0'
+2024-12-25T12:28:57.8339941Z ##[group]Operating System
+2024-12-25T12:28:57.8340673Z Ubuntu
+2024-12-25T12:28:57.8341151Z 22.04.5
+2024-12-25T12:28:57.8341758Z LTS
+2024-12-25T12:28:57.8342211Z ##[endgroup]
+2024-12-25T12:28:57.8342740Z ##[group]Runner Image
+2024-12-25T12:28:57.8343401Z Image: ubuntu-22.04
+2024-12-25T12:28:57.8343875Z Version: 20241215.1.0
+2024-12-25T12:28:57.8344887Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20241215.1/images/ubuntu/Ubuntu2204-Readme.md
+2024-12-25T12:28:57.8346368Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20241215.1
+2024-12-25T12:28:57.8347272Z ##[endgroup]
+2024-12-25T12:28:57.8347774Z ##[group]Runner Image Provisioner
+2024-12-25T12:28:57.8348435Z 2.0.404.1
+2024-12-25T12:28:57.8348857Z ##[endgroup]
+2024-12-25T12:28:57.8350304Z ##[group]GITHUB_TOKEN Permissions
+2024-12-25T12:28:57.8352322Z Contents: read
+2024-12-25T12:28:57.8352882Z Metadata: read
+2024-12-25T12:28:57.8353725Z Packages: read
+2024-12-25T12:28:57.8354259Z ##[endgroup]
+2024-12-25T12:28:57.8358112Z Secret source: Actions
+2024-12-25T12:28:57.8359122Z Prepare workflow directory
+2024-12-25T12:28:57.8662176Z Prepare all required actions
+2024-12-25T12:28:57.8698323Z Getting action download info
+2024-12-25T12:28:58.0697847Z Download action repository 'actions/checkout@v4' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2024-12-25T12:28:58.1508329Z Download action repository 'actions/setup-node@v4' (SHA:39370e3970a6d050c480ffad4ff0ed4d3fdee5af)
+2024-12-25T12:28:58.3097776Z Complete job name: build (20)
+2024-12-25T12:28:58.3894452Z ##[group]Run actions/checkout@v4
+2024-12-25T12:28:58.3895600Z with:
+2024-12-25T12:28:58.3896183Z   repository: martinrombach88/js_cicd_calculator
+2024-12-25T12:28:58.3896961Z   token: ***
+2024-12-25T12:28:58.3897576Z   ssh-strict: true
+2024-12-25T12:28:58.3898088Z   ssh-user: git
+2024-12-25T12:28:58.3898532Z   persist-credentials: true
+2024-12-25T12:28:58.3899171Z   clean: true
+2024-12-25T12:28:58.3899703Z   sparse-checkout-cone-mode: true
+2024-12-25T12:28:58.3900219Z   fetch-depth: 1
+2024-12-25T12:28:58.3900781Z   fetch-tags: false
+2024-12-25T12:28:58.3901294Z   show-progress: true
+2024-12-25T12:28:58.3901738Z   lfs: false
+2024-12-25T12:28:58.3902310Z   submodules: false
+2024-12-25T12:28:58.3902798Z   set-safe-directory: true
+2024-12-25T12:28:58.3903565Z ##[endgroup]
+2024-12-25T12:28:58.5511561Z Syncing repository: martinrombach88/js_cicd_calculator
+2024-12-25T12:28:58.5513785Z ##[group]Getting Git version info
+2024-12-25T12:28:58.5515057Z Working directory is '/home/runner/work/js_cicd_calculator/js_cicd_calculator'
+2024-12-25T12:28:58.5516593Z [command]/usr/bin/git version
+2024-12-25T12:28:58.5550707Z git version 2.47.1
+2024-12-25T12:28:58.5577415Z ##[endgroup]
+2024-12-25T12:28:58.5590439Z Temporarily overriding HOME='/home/runner/work/_temp/d6d52637-d361-4ae2-b1d7-50a180df3cba' before making global git config changes
+2024-12-25T12:28:58.5591904Z Adding repository directory to the temporary git global config as a safe directory
+2024-12-25T12:28:58.5602667Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/js_cicd_calculator/js_cicd_calculator
+2024-12-25T12:28:58.5638802Z Deleting the contents of '/home/runner/work/js_cicd_calculator/js_cicd_calculator'
+2024-12-25T12:28:58.5642195Z ##[group]Initializing the repository
+2024-12-25T12:28:58.5645981Z [command]/usr/bin/git init /home/runner/work/js_cicd_calculator/js_cicd_calculator
+2024-12-25T12:28:58.5703558Z hint: Using 'master' as the name for the initial branch. This default branch name
+2024-12-25T12:28:58.5704793Z hint: is subject to change. To configure the initial branch name to use in all
+2024-12-25T12:28:58.5705748Z hint: of your new repositories, which will suppress this warning, call:
+2024-12-25T12:28:58.5706610Z hint:
+2024-12-25T12:28:58.5707366Z hint: 	git config --global init.defaultBranch <name>
+2024-12-25T12:28:58.5708485Z hint:
+2024-12-25T12:28:58.5709439Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2024-12-25T12:28:58.5710762Z hint: 'development'. The just-created branch can be renamed via this command:
+2024-12-25T12:28:58.5711530Z hint:
+2024-12-25T12:28:58.5712072Z hint: 	git branch -m <name>
+2024-12-25T12:28:58.5713183Z Initialized empty Git repository in /home/runner/work/js_cicd_calculator/js_cicd_calculator/.git/
+2024-12-25T12:28:58.5719340Z [command]/usr/bin/git remote add origin https://github.com/martinrombach88/js_cicd_calculator
+2024-12-25T12:28:58.5751518Z ##[endgroup]
+2024-12-25T12:28:58.5752399Z ##[group]Disabling automatic garbage collection
+2024-12-25T12:28:58.5756140Z [command]/usr/bin/git config --local gc.auto 0
+2024-12-25T12:28:58.5785391Z ##[endgroup]
+2024-12-25T12:28:58.5786475Z ##[group]Setting up auth
+2024-12-25T12:28:58.5792160Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-12-25T12:28:58.5829307Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-12-25T12:28:58.6138388Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-12-25T12:28:58.6169720Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-12-25T12:28:58.6404629Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2024-12-25T12:28:58.6441744Z ##[endgroup]
+2024-12-25T12:28:58.6443325Z ##[group]Fetching the repository
+2024-12-25T12:28:58.6451213Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d9ddb89324ab9e799d0bbe8d8e967e60431baa00:refs/remotes/origin/main
+2024-12-25T12:28:59.1119333Z From https://github.com/martinrombach88/js_cicd_calculator
+2024-12-25T12:28:59.1120606Z  * [new ref]         d9ddb89324ab9e799d0bbe8d8e967e60431baa00 -> origin/main
+2024-12-25T12:28:59.1145993Z ##[endgroup]
+2024-12-25T12:28:59.1147449Z ##[group]Determining the checkout info
+2024-12-25T12:28:59.1148855Z ##[endgroup]
+2024-12-25T12:28:59.1153346Z [command]/usr/bin/git sparse-checkout disable
+2024-12-25T12:28:59.1192181Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2024-12-25T12:28:59.1220072Z ##[group]Checking out the ref
+2024-12-25T12:28:59.1223173Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2024-12-25T12:28:59.1325670Z Switched to a new branch 'main'
+2024-12-25T12:28:59.1329267Z branch 'main' set up to track 'origin/main'.
+2024-12-25T12:28:59.1334509Z ##[endgroup]
+2024-12-25T12:28:59.1368815Z [command]/usr/bin/git log -1 --format=%H
+2024-12-25T12:28:59.1392355Z d9ddb89324ab9e799d0bbe8d8e967e60431baa00
+2024-12-25T12:28:59.1629343Z ##[group]Run actions/setup-node@v4
+2024-12-25T12:28:59.1630119Z with:
+2024-12-25T12:28:59.1630543Z   always-auth: false
+2024-12-25T12:28:59.1631067Z   check-latest: false
+2024-12-25T12:28:59.1631810Z   token: ***
+2024-12-25T12:28:59.1632240Z ##[endgroup]
+2024-12-25T12:28:59.3322711Z ##[group]Environment details
+2024-12-25T12:28:59.6620189Z node: v18.20.5
+2024-12-25T12:28:59.6622081Z npm: 10.8.2
+2024-12-25T12:28:59.6623389Z yarn: 1.22.22
+2024-12-25T12:28:59.6625987Z ##[endgroup]
+2024-12-25T12:28:59.6767426Z ##[group]Run npm ci
+2024-12-25T12:28:59.6768536Z [36;1mnpm ci[0m
+2024-12-25T12:28:59.6852041Z shell: /usr/bin/bash -e {0}
+2024-12-25T12:28:59.6853221Z ##[endgroup]
+2024-12-25T12:29:03.7931141Z 
+2024-12-25T12:29:03.7940759Z added 456 packages, and audited 457 packages in 4s
+2024-12-25T12:29:03.7941495Z 
+2024-12-25T12:29:03.7942197Z 47 packages are looking for funding
+2024-12-25T12:29:03.7943047Z   run `npm fund` for details
+2024-12-25T12:29:03.8020104Z 
+2024-12-25T12:29:03.8020918Z 9 vulnerabilities (3 low, 1 moderate, 5 high)
+2024-12-25T12:29:03.8021578Z 
+2024-12-25T12:29:03.8022028Z To address all issues, run:
+2024-12-25T12:29:03.8023340Z   npm audit fix
+2024-12-25T12:29:03.8023670Z 
+2024-12-25T12:29:03.8024188Z Run `npm audit` for details.
+2024-12-25T12:29:03.8362131Z ##[group]Run npm test
+2024-12-25T12:29:03.8362881Z [36;1mnpm test[0m
+2024-12-25T12:29:03.8439877Z shell: /usr/bin/bash -e {0}
+2024-12-25T12:29:03.8440244Z ##[endgroup]
+2024-12-25T12:29:03.9713996Z 
+2024-12-25T12:29:03.9715380Z > js_cicd_calculator@1.0.0 test
+2024-12-25T12:29:03.9716435Z > jest --config ./jest.config.ts
+2024-12-25T12:29:03.9717105Z 
+2024-12-25T12:29:08.5604035Z PASS src/testing/calculator.test.ts
+2024-12-25T12:29:08.9106847Z PASS src/testing/app.test.ts
+2024-12-25T12:29:08.9426431Z 
+2024-12-25T12:29:08.9432708Z Test Suites: 2 passed, 2 total
+2024-12-25T12:29:08.9433519Z Tests:       20 passed, 20 total
+2024-12-25T12:29:08.9433959Z Snapshots:   0 total
+2024-12-25T12:29:08.9434410Z Time:        2.914 s
+2024-12-25T12:29:08.9435103Z Ran all test suites.
+2024-12-25T12:29:08.9791921Z ##[group]Run npm install
+2024-12-25T12:29:08.9792409Z [36;1mnpm install[0m
+2024-12-25T12:29:08.9851005Z shell: /usr/bin/bash -e {0}
+2024-12-25T12:29:08.9851359Z ##[endgroup]
+2024-12-25T12:29:10.0332084Z 
+2024-12-25T12:29:10.0333015Z up to date, audited 457 packages in 974ms
+2024-12-25T12:29:10.0333725Z 
+2024-12-25T12:29:10.0334112Z 47 packages are looking for funding
+2024-12-25T12:29:10.0334892Z   run `npm fund` for details
+2024-12-25T12:29:10.0463839Z 
+2024-12-25T12:29:10.0464337Z 9 vulnerabilities (3 low, 1 moderate, 5 high)
+2024-12-25T12:29:10.0464798Z 
+2024-12-25T12:29:10.0465133Z To address all issues, run:
+2024-12-25T12:29:10.0465927Z   npm audit fix
+2024-12-25T12:29:10.0466297Z 
+2024-12-25T12:29:10.0466649Z Run `npm audit` for details.
+2024-12-25T12:29:10.0717753Z Post job cleanup.
+2024-12-25T12:29:10.2261642Z Post job cleanup.
+2024-12-25T12:29:10.3189054Z [command]/usr/bin/git version
+2024-12-25T12:29:10.3225667Z git version 2.47.1
+2024-12-25T12:29:10.3269018Z Temporarily overriding HOME='/home/runner/work/_temp/974febce-cb1f-4722-910a-4b31b3f48514' before making global git config changes
+2024-12-25T12:29:10.3270905Z Adding repository directory to the temporary git global config as a safe directory
+2024-12-25T12:29:10.3275966Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/js_cicd_calculator/js_cicd_calculator
+2024-12-25T12:29:10.3318123Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-12-25T12:29:10.3351569Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-12-25T12:29:10.3589114Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-12-25T12:29:10.3611105Z http.https://github.com/.extraheader
+2024-12-25T12:29:10.3623853Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2024-12-25T12:29:10.3656123Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-12-25T12:29:10.3987972Z Cleaning up orphan processes
