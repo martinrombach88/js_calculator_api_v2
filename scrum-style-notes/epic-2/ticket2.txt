@@ -11,8 +11,8 @@ solved through a vercel bearer token
 
 ? api returns html? does not behave like the api. 
 link returns metrics about the api but not the api itself.
-all urls return similar results. it's likely 
-the deployment is designed for frontend applications
+all urls return similar results. 
+------it's likely the deployment is designed for frontend applications -----
 
 - follow the docs, express deployment 
 app complains there is no build property established.
@@ -33,3 +33,18 @@ uploaded it to amazon ec2, logged in live and deployed it
 
 ? so what do you want to do instead?
 deploy to vercel using standard node / express commands that incorporate typescript in build/start 
+
+adding npm start on the index files should just... 
+run the deployment forever right? as if the deployment is a server??
+
+- try the documentation examples, clone a copy
+! vercel is for frontend apps only, not fit for purpose !
+
+- options?
+try to adapt the api project to the namecheap site,
+seeing as that's how apis work anyway?
+
+Namecheap support (having received the repo):
+'It should be possible to deploy it on our shared hosting plans (portfolio has this in place).
+Please note that root access is not provided with shared hosting, if the app requires root access, it can't be deployed.'
+
