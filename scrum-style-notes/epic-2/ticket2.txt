@@ -48,3 +48,6 @@ Namecheap support (having received the repo):
 'It should be possible to deploy it on our shared hosting plans (portfolio has this in place).
 Please note that root access is not provided with shared hosting, if the app requires root access, it can't be deployed.'
 
+Namecheap link (seems to be php related)
+https://www.namecheap.com/support/knowledgebase/article.aspx/9366/2194/errors-500-502-503-504-and-508-reasons-and-ways-of-fixing/
+
