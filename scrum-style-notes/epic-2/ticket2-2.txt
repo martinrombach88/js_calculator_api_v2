@@ -1,0 +1,4 @@
+Current:
+
+- Local shows us expected result, original post request was saved.
+- Investigation should continue into how the app is configured and whether namecheap (or another service) is capable of returning a public Node.js API

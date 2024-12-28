@@ -1,0 +1,13 @@
+Definition of success is:
+
+API Accepts + - / * and single bracket equation strings. To use, send a JSON object in this syntax {"expression": "1 + 1"} via POST request.
+
+Input:
+raw JSON { "expression" : "3+5"}
+
+Output:
+{
+ "result": 8
+}
+
+Online API must return correct output when a POST request is sent to it.

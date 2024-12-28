@@ -141,3 +141,7 @@
 {"level":30,"time":1707235603923,"pid":11626,"hostname":"Martins-MBP","msg":"req.body: 3 + 4 result: 7"}
 {"level":30,"time":1707235607735,"pid":11626,"hostname":"Martins-MBP","msg":"req.body: 3 + 5 result: 8"}
 {"level":30,"time":1707236831060,"pid":12213,"hostname":"Martins-MBP","msg":"req.body: 3 * (4  + 5 ) result: 27"}
+{"level":30,"time":1735397929291,"pid":38954,"hostname":"Martins-MacBook-Pro.local","msg":"req.body: (3 + 5 result: 0"}
+{"level":30,"time":1735398051764,"pid":38954,"hostname":"Martins-MacBook-Pro.local","msg":"req.body: 3 + 5 result: 8"}
+{"level":30,"time":1735398055945,"pid":38954,"hostname":"Martins-MacBook-Pro.local","msg":"req.body: (3 + 5 result: 0"}
+{"level":30,"time":1735398058706,"pid":38954,"hostname":"Martins-MacBook-Pro.local","msg":"req.body: 3 + 5 result: 8"}
