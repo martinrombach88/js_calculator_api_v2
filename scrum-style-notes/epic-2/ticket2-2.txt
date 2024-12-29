@@ -1,4 +1,11 @@
 Current:
 
 - Local shows us expected result, original post request was saved.
-- Investigation should continue into how the app is configured and whether namecheap (or another service) is capable of returning a public Node.js API
+- Investigation should continue into how the app is configured and whether namecheap (or another service) is capable of acting as a Node.js API and returning basic JSON
+
+Example deployment - try deploying a JS only 
+simple express app that receives and returns json.
+
+See express-example folder for index.js example.
+Maintain edits in both the deployed example and 
+github reference folder.
