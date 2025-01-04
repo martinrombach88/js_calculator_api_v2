@@ -9,3 +9,14 @@ simple express app that receives and returns json.
 See express-example folder for index.js example.
 Maintain edits in both the deployed example and 
 github reference folder.
+
+! express example deployed having similar issues to the calculator
+typescript not the problem (local deployment ok).
+
+Does namecheap's web app include an api? Or will it always return a html because its supposed to be full stack?
+
+Can you deploy the calculator via SSH instead for more control?
+
+Can you use Amazon again instead of the name cheap service at a reasonable price? What about azure free tier? 
+
+Deploy on amazon via Azure Functions
