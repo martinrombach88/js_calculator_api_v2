@@ -1,0 +1,13 @@
+progress:
+
+azure with free tier offers a deployment solution
+in the form of Azure Functions
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp
+https://learn.microsoft.com/en-us/answers/questions/1689311/can-i-create-an-azure-function-app-with-a-free-tie 
+
+should be good for further deployment work (especially csharp)
+
+App was deployed, but postman currently returns a 404 on the endpoint.
+Post request to home link returns a html document.
+
