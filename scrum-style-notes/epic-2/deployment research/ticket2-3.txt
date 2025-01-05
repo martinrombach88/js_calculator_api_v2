@@ -11,9 +11,12 @@ should be good for further deployment work (especially csharp)
 App was deployed, but postman currently returns a 404 on the endpoint.
 Post request to home link returns a html document.
 
-Documentation does specify that Azure Functions can be used to deploy APIs.
+Documentation does specify that Azure Functions can be used to deploy APIs (and in free tier, as is the budget).
+
 You probably haven't configured it properly.
 
 Page includes 'functions' (possibly like AWS lambda functions), this should be the next point to research.
 
-Build provider is github actions, so your workflow should be designed for azure (rather than aws ec2) 
+Build provider is github actions, so your workflow should be designed for azure (rather than aws ec2). Right now it's the EC2 log in and deploy business.
+
+Next - create a new workflow for azure.
