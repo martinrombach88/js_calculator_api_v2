@@ -1,1 +1,6 @@
 1. Azure workflow
+
+Understand:
+What workflow you need
+What configuration azure needs
+
