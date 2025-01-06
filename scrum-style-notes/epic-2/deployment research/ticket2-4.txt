@@ -2,5 +2,8 @@
 
 Understand:
 What workflow you need
+- a basic node.js deployment workflow 
+
 What configuration azure needs
+- github actions can deploy on node.js on the app service
 
