@@ -7,3 +7,8 @@ What workflow you need
 What configuration azure needs
 - github actions can deploy on node.js on the app service
 
+Success!
+
+Next:
+Clean up the portfolio:
+App should include endpoint link and workflow link from Azure
